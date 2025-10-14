@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "css.validate": false,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "css.customData": [".vscode/css_custom_data.json"]
+}
+
+
