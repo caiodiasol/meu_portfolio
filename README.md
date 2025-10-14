@@ -1,3 +1,7 @@
+Portfólio pessoal desenvolvido com foco em experiência, acessibilidade e boas práticas de engenharia.
+O projeto combina tecnologias modernas do ecossistema web — Next.js, React, TailwindCSS e Radix UI — com animações suaves via Framer Motion e gráficos dinâmicos com Recharts.
+A base em TypeScript e validações com Zod garantem segurança, consistência e escalabilidade no código.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
