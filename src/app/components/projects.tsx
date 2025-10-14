@@ -136,10 +136,10 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="py-16 px-8">
+    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
             Projetos em <span className="text-gradient">Destaque</span>
           </h2>
 
@@ -151,8 +151,8 @@ export function Projects() {
               >
                 {projects.map((project, index) => (
                   <div key={index} className="w-full flex-shrink-0">
-                    <div className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 mx-2">
-                      <div className="h-64 lg:h-80 bg-muted/20 flex items-center justify-center p-4">
+                    <div className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 mx-1 sm:mx-2">
+                      <div className="h-48 sm:h-64 lg:h-80 bg-muted/20 flex items-center justify-center p-2 sm:p-4">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
@@ -160,27 +160,27 @@ export function Projects() {
                         />
                       </div>
 
-                      <div className="p-4 space-y-3">
-                        <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground">{project.title}</h3>
 
-                        <p className="text-muted-foreground text-pretty text-sm min-h-[4.5rem]">{project.description}</p>
+                        <p className="text-xs leading-relaxed sm:text-sm text-muted-foreground text-justify sm:text-left min-h-[3.5rem] sm:min-h-[4.5rem]">{project.description}</p>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
+                              className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-primary/10 text-primary text-[10px] sm:text-xs rounded-full border border-primary/20"
                             >
                               {tech}
                             </span>
                           ))}
                         </div>
 
-                        <div className="flex gap-3 pt-2">
+                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-2">
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-xs"
+                            className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-[10px] sm:text-xs"
                             asChild
                           >
                             <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -191,7 +191,7 @@ export function Projects() {
                           {project.live && (
                           <Button
                             size="sm"
-                            className="bg-primary text-primary-foreground hover:bg-accent text-xs"
+                            className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-accent text-[10px] sm:text-xs"
                             asChild
                           >
                             <a href={project.live} target="_blank" rel="noopener noreferrer">
@@ -210,23 +210,23 @@ export function Projects() {
 
             <button
               onClick={prevProject}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background border border-border text-foreground p-2 rounded-full transition-all hover:border-primary/50 hover:shadow-lg"
+              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm hover:bg-primary/30 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={nextProject}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm hover:bg-background border border-border text-foreground p-2 rounded-full transition-all hover:border-primary/50 hover:shadow-lg"
+              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm hover:bg-primary/30 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-1.5 sm:gap-2 mt-4">
               {projects.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentProjectIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all cursor-pointer ${
                     currentProjectIndex === index
                       ? "bg-primary scale-110"
                       : "bg-muted-foreground/30 hover:bg-muted-foreground/50"

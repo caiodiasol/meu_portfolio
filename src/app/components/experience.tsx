@@ -38,10 +38,10 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 px-6 bg-card/30">
+    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 bg-card/30">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12 text-center">
             <span className="text-gradient">Experiência</span>
           </h2>
 
@@ -49,43 +49,43 @@ export function Experience() {
             {/* Linha vertical */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden lg:block"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-12">
               {experiences.map((exp, index) => (
                 <div key={index} className="group relative">
                   {/* Ponto na linha do tempo */}
                   <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background hidden lg:block group-hover:scale-125 transition-transform"></div>
 
                   <div className="lg:ml-20">
-                    <div className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                    <div className="bg-card border border-border rounded-xl p-4 sm:p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
                       {/* Header da experiência */}
-                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 sm:mb-6">
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 text-sm text-primary font-mono">
-                            <Calendar className="w-4 h-4" />
+                          <div className="flex items-center gap-2 text-xs sm:text-sm text-primary font-mono">
+                            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                             {exp.period}
                           </div>
-                          <h3 className="text-2xl font-bold text-foreground">{exp.role}</h3>
-                          <div className="flex items-center gap-4 text-muted-foreground">
+                          <h3 className="text-xl sm:text-2xl font-bold text-foreground">{exp.role}</h3>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-muted-foreground">
                             <div className="flex items-center gap-1">
-                              <Briefcase className="w-4 h-4" />
+                              <Briefcase className="w-3 h-3 sm:w-4 sm:h-4" />
                               <span className="font-medium text-primary">{exp.company}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <MapPin className="w-4 h-4" />
+                              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                               <span>{exp.location}</span>
                             </div>
                           </div>
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground text-pretty mb-6">{exp.description}</p>
+                      <p className="text-xs leading-relaxed sm:text-sm lg:text-base text-muted-foreground text-justify sm:text-left mb-4 sm:mb-6">{exp.description}</p>
 
                       {/* Conquistas */}
-                      <div className="mb-6">
+                      <div className="mb-4 sm:mb-6">
                         <h4 className="text-sm font-semibold text-foreground mb-3">Principais Conquistas:</h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, i) => (
-                            <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <li key={i} className="flex items-start gap-2 text-xs leading-relaxed sm:text-sm text-muted-foreground text-justify sm:text-left">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                               {achievement}
                             </li>
@@ -98,7 +98,7 @@ export function Experience() {
                         {exp.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
+                            className="px-2 sm:px-3 py-1 sm:py-1.5 bg-primary/10 text-primary text-xs sm:text-sm rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                           >
                             {tech}
                           </span>

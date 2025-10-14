@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, BookOpen, Award } from "lucide-react"
+import { GraduationCap, BookOpen } from "lucide-react"
 
 const educationData = [
   {
@@ -42,12 +42,12 @@ export function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
             Formação <span className="text-primary">Acadêmica</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Minha jornada educacional e os conhecimentos adquiridos ao longo dos anos
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ export function Education() {
 
                   <p className="text-primary font-medium mb-1">{education.institution}</p>
 
-                  <p className="text-muted-foreground text-sm mb-3">{education.description}</p>
+                  <p className="text-xs leading-relaxed sm:text-sm text-muted-foreground mb-3 text-justify sm:text-left">{education.description}</p>
 
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">{education.type}</span>
