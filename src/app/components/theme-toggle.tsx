@@ -5,19 +5,41 @@ import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true)
+  // Estado inicial baseado no que está no DOM (já inicializado pelo script inline)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      const hasLightClass = document.documentElement.classList.contains("light")
+      return !hasLightClass
+    }
+    return true // Default para dark
+  })
 
   useEffect(() => {
+    // Sincroniza com localStorage e DOM
     const theme = localStorage.getItem("theme") || "dark"
-    setIsDark(theme === "dark")
-    document.documentElement.classList.toggle("light", theme === "light")
+    const shouldBeDark = theme === "dark"
+    
+    setIsDark(shouldBeDark)
+    
+    // Garante que o DOM está sincronizado
+    if (shouldBeDark) {
+      document.documentElement.classList.remove("light")
+    } else {
+      document.documentElement.classList.add("light")
+    }
   }, [])
 
   const toggleTheme = () => {
     const newTheme = isDark ? "light" : "dark"
-    setIsDark(!isDark)
+    setIsDark(newTheme === "dark")
     localStorage.setItem("theme", newTheme)
-    document.documentElement.classList.toggle("light", newTheme === "light")
+    
+    // Atualiza o DOM imediatamente
+    if (newTheme === "dark") {
+      document.documentElement.classList.remove("light")
+    } else {
+      document.documentElement.classList.add("light")
+    }
   }
 
   return (

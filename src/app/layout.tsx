@@ -23,8 +23,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem("theme") || "dark";
+                  if (theme === "light") {
+                    document.documentElement.classList.add("light");
+                  } else {
+                    document.documentElement.classList.remove("light");
+                  }
+                } catch (e) {
+                  // Se não conseguir acessar localStorage, mantém o tema dark padrão
+                  document.documentElement.classList.remove("light");
+                }
+              })();
+            `,
+          }}
+        />
         {children}
       </body>
     </html>

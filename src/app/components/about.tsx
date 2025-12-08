@@ -18,7 +18,7 @@ export function About() {
                 </p>
   
                 <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground text-justify sm:text-left">
-                  Desde então, estou me especializando no desenvolvimento full stack, unindo minha base analítica e visão de negócios à criação de soluções tecnológicas eficientes e escaláveis. Tenho me aprofundado em linguagens e frameworks como Python, JavaScript, React e Django, com foco em boas práticas de engenharia de software e integração entre front-end e back-end. Busco atuar em projetos que valorizem qualidade técnica, colaboração e impacto real por meio da tecnologia. 
+                  Desde a conclusão do curso de Desenvolvedor Full Stack Python no final de 2025, venho me aprofundando no desenvolvimento full stack, unindo minha base analítica e visão de negócios à criação de soluções tecnológicas eficientes e escaláveis. Ao longo desse período, evoluí em linguagens e frameworks como Python, JavaScript, React e Django e Docker, sempre com foco em boas práticas de engenharia de software e na integração sólida entre front-end e back-end. Busco atuar em projetos que valorizem qualidade técnica, colaboração e impacto real por meio da tecnologia.
                 </p>
               </div>
   
@@ -41,6 +41,7 @@ export function About() {
                     "Python",
                     "Django",
                     "Postman",
+                    "Docker",
                   ].map((tech) => (
                     <div key={tech} className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>

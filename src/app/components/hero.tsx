@@ -17,11 +17,11 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-24 sm:pt-20">
-      <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 sm:pt-20">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* Conteúdo principal */}
-          <div className={`space-y-6 sm:space-y-8 ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
+          <div className={`space-y-6 sm:space-y-8 lg:pr-8 xl:pr-12 ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-center sm:text-left">
               <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-primary/20 bg-card flex items-center justify-center flex-shrink-0">
                 <img src="/perfil.jpg" alt="foto perfil" className="w-full h-full object-cover object-center" />
@@ -32,7 +32,7 @@ export function Hero() {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground max-w-lg text-justify sm:text-left">
+            <p className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-lg lg:max-w-2xl text-justify sm:text-left">
               Crio soluções digitais que unem estratégia, tecnologia e experiência do usuário. Do planejamento à implementação, busco compreender o problema com profundidade para desenvolver sistemas consistentes, escaláveis e alinhados aos objetivos do negócio. Cada projeto é uma oportunidade de traduzir lógica em clareza, transformar dados em decisões e criar experiências fluidas que refletem cuidado em cada detalhe — do backend à interface. Meu foco está em construir produtos que gerem impacto real, combinando precisão técnica, visão analítica e uma engenharia orientada à qualidade e evolução contínua.
             </p>
 
