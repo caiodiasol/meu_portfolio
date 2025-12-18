@@ -7,6 +7,15 @@ import { Button } from "@/components/ui/button"
 export function Projects() {
   const projects = [
     {
+      title: "Desafio Técnico – NewSun Energy",
+      description:
+        "Aplicação full stack desenvolvida como desafio técnico para a NewSun Energy Group, simulando um fluxo real de compensação energética. O projeto contempla desde a submissão de leads com upload de contas de energia até a listagem e visualização detalhada das simulações, com forte foco em Clean Architecture, validações robustas e experiência do usuário.",
+      image: "/newsun_energy.png",
+      technologies: ["TypeScript", "Next.js", "React", "NestJS", "Prisma ORM", "MySQL", "TailwindCSS", "Zod", "Docker", "API Rest"],
+      github: "https://github.com/caiodiasol/desafio-dev-fullstack",
+      live: null
+    },
+    {
       title: "Gerador de Dietas OpenAI",
       description:
         "Projeto de um Gerador de Dietas Inteligente, com backend com Node.js integrado ao frontend com Next.js. Utiliza um agente da OpenAI, com base de conhecimento estruturada dentro do prompt, para gerar planos alimentares personalizados e conectar-se a uma API para entrega dinâmica dos resultados.",
