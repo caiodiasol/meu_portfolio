@@ -7,6 +7,15 @@ import { Button } from "@/components/ui/button"
 export function Projects() {
   const projects = [
     {
+      title: "Desafio Técnico – GDASH | Sistema de Monitoramento Climático",
+      description:
+        "Sistema full stack desenvolvido como desafio técnico para a GDASH, focado na coleta, processamento e visualização de dados climáticos em tempo quase real. A solução implementa um pipeline distribuído com mensageria, múltiplos serviços, geração de insights com IA e um dashboard interativo, priorizando resiliência, escalabilidade e boas práticas de arquitetura.",
+      image: "/dashboard_gdash.png",
+      technologies: ["TypeScript", "React", "Vite", "TailwindCSS", "shadcn/ui", "Recharts", "NestJS", "MongoDB", "Mongoose", "Go", "Python", "RabbitMQ", "Docker", "Docker Compose", "JWT", "OpenAI", "Google Gemini", "API Rest"],
+      github: "https://github.com/caiodiasol/desafio-gdash-2025-02/tree/caio-dias-oliveira",
+      live: null
+    },
+    {
       title: "Desafio Técnico – NewSun Energy",
       description:
         "Aplicação full stack desenvolvida como desafio técnico para a NewSun Energy Group, simulando um fluxo real de compensação energética. O projeto contempla desde a submissão de leads com upload de contas de energia até a listagem e visualização detalhada das simulações, com forte foco em Clean Architecture, validações robustas e experiência do usuário.",
