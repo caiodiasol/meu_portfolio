@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Globe, Server, Wrench, Users, Award, BookOpen } from "lucide-react"
 import { Code, Zap, Database, Smartphone } from "lucide-react"
 
@@ -71,6 +71,28 @@ export function Skills() {
     },
   ]
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  }
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1.0], // cubic-bezier equivalent for easeOut
+      },
+    },
+  }
+
   return (
     <section id="skills-section" className="py-16 sm:py-20 px-4 sm:px-6 bg-background">
       <div className="container mx-auto">
@@ -79,7 +101,7 @@ export function Skills() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] }}
         >
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Competências <span className="text-gradient">Técnicas</span>
@@ -89,11 +111,18 @@ export function Skills() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
                 className={`group relative overflow-hidden rounded-xl border-2 backdrop-blur-sm ${category.borderColor} ${category.bgColor} p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-all duration-300 hover:border-opacity-100`}
+                variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -114,7 +143,7 @@ export function Skills() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           <div className="text-center mb-6 sm:mb-8 lg:mb-12">
             <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Competências
@@ -122,11 +151,18 @@ export function Skills() {
             </h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {complementarySkills.map((category, index) => (
               <motion.div
                 key={index}
                 className={`group relative overflow-hidden rounded-xl border-2 backdrop-blur-sm ${category.borderColor} ${category.bgColor} p-4 sm:p-6 hover:shadow-lg transition-all duration-300`}
+                variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -147,9 +183,15 @@ export function Skills() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
           {/* Estatísticas adicionais */}
-          <div className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <motion.div
+            className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
             {[
               { label: "Projetos Concluídos", value: "10+", icon: <Code className="w-4 h-4 sm:w-5 sm:h-5" /> },
               { label: "Anos de Experiência", value: "3+", icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" /> },
@@ -159,6 +201,7 @@ export function Skills() {
               <motion.div
                 key={index}
                 className="text-center p-4 sm:p-6 bg-card/80 backdrop-blur-sm border border-border rounded-xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -167,7 +210,7 @@ export function Skills() {
                 <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

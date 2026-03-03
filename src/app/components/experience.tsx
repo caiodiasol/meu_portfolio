@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { Calendar, MapPin, Briefcase } from "lucide-react"
 
 export function Experience() {
@@ -56,6 +56,28 @@ export function Experience() {
     },
   ]
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  }
+
   return (
     <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 bg-card/30">
       <div className="container mx-auto">
@@ -74,13 +96,20 @@ export function Experience() {
             {/* Linha vertical */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden lg:block"></div>
 
-            <div className="space-y-8 sm:space-y-12">
+            <motion.div
+              className="space-y-8 sm:space-y-12"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
               {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   className="group relative"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   {/* Ponto na linha do tempo */}
                   <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background hidden lg:block group-hover:scale-125 transition-transform"></div>
@@ -138,7 +167,7 @@ export function Experience() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
