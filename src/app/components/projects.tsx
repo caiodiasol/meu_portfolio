@@ -119,7 +119,7 @@ export function Projects() {
       description:
         "Esse projeto consiste no desenvolvimento de um sorteador de números, onde o usuário pode digitar um número máximo e o sistema gera números aleatórios dentro desse intervalo. Utilizando Grunt para automação de tarefas e LESS para estilização.",
       image: "/sorteador.jpg",
-      technologies: ["Html", "LESS", "JavaScript", "Grunt" ],
+      technologies: ["Html", "LESS", "JavaScript", "Grunt"],
       github: "https://github.com/caiodiasol/grunt_sorteador",
       live: "https://gruntsorteadorcaio.vercel.app/"
     },
@@ -169,16 +169,16 @@ export function Projects() {
               >
                 {projects.map((project, index) => (
                   <div key={index} className="w-full flex-shrink-0">
-                    <div className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 mx-1 sm:mx-2">
-                      <div className="h-48 sm:h-64 lg:h-80 bg-muted/20 flex items-center justify-center p-2 sm:p-4">
+                    <div className="group relative bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 mx-1 sm:mx-2">
+                      <div className="h-48 sm:h-64 lg:h-80 bg-muted/20 flex items-center justify-center p-2 sm:p-4 relative z-10">
                         <img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
-                          className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                          className="w-full h-full object-contain transition-transform duration-500 hover:scale-[1.03]"
                         />
                       </div>
 
-                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3 relative z-10">
                         <h3 className="text-base sm:text-lg font-semibold text-foreground">{project.title}</h3>
 
                         <p className="text-xs leading-relaxed sm:text-sm text-muted-foreground text-justify sm:text-left min-h-[3.5rem] sm:min-h-[4.5rem]">{project.description}</p>
@@ -207,17 +207,17 @@ export function Projects() {
                             </a>
                           </Button>
                           {project.live && (
-                          <Button
-                            size="sm"
-                            className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-accent text-[10px] sm:text-xs"
-                            asChild
-                          >
-                            <a href={project.live} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="mr-1 h-3 w-3" />
-                              Ver Projeto
-                            </a>
-                          </Button>
-                        )}
+                            <Button
+                              size="sm"
+                              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-accent text-[10px] sm:text-xs"
+                              asChild
+                            >
+                              <a href={project.live} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-1 h-3 w-3" />
+                                Ver Projeto
+                              </a>
+                            </Button>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -228,13 +228,13 @@ export function Projects() {
 
             <button
               onClick={prevProject}
-              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm hover:bg-primary/30 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-20"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={nextProject}
-              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm hover:bg-primary/30 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1.5 sm:p-2 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-20"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
@@ -244,11 +244,10 @@ export function Projects() {
                 <button
                   key={index}
                   onClick={() => setCurrentProjectIndex(index)}
-                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all cursor-pointer ${
-                    currentProjectIndex === index
-                      ? "bg-primary scale-110"
-                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer active:scale-90 ${currentProjectIndex === index
+                    ? "bg-primary scale-125 shadow-[0_0_10px_hsl(var(--primary))]"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                    }`}
                 />
               ))}
             </div>

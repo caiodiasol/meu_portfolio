@@ -13,15 +13,15 @@ const educationData = [
     icon: BookOpen,
     description: "Formação profissional para atuar no desenvolvimento de software do front-end ao back-end, abordando fundamentos da programação e lógica computacional até o uso de frameworks modernos como Django e React, além de banco de dados e APIs, testes e boas práticas de engenharia de software.",
   },
-   {
-     type: "Curso Técnico",
-     institution: "Infinity School",
-     course: "Programação e Metaverso",
-     period: "2022 - 2023",
-     status: "Concluído",
-     icon: BookOpen,
-     description: "Fundamentos de programação, C# aplicado ao Unity, Realidade Virtual, Banco de Dados para Servidores e Criação de Cenários 3D.",
-   },
+  {
+    type: "Curso Técnico",
+    institution: "Infinity School",
+    course: "Programação e Metaverso",
+    period: "2022 - 2023",
+    status: "Concluído",
+    icon: BookOpen,
+    description: "Fundamentos de programação, C# aplicado ao Unity, Realidade Virtual, Banco de Dados para Servidores e Criação de Cenários 3D.",
+  },
   {
     type: "Ensino Superior",
     institution: "Unijorge - Universidade Jorge Amado",
@@ -58,16 +58,18 @@ export function Education() {
               key={index}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="relative mb-8 last:mb-0"
+              className="relative mb-8 last:mb-0 group"
             >
               {/* Timeline line */}
               {index < educationData.length - 1 && (
                 <div className="absolute left-6 top-16 w-0.5 h-24 bg-primary/30 hidden md:block" />
               )}
 
-              <div className="flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <div className="relative flex flex-col md:flex-row items-start gap-6 p-6 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden">
                 {/* Icon */}
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -76,7 +78,7 @@ export function Education() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 relative z-10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                     <h3 className="text-xl font-semibold text-foreground">{education.course}</h3>
                     <span className="text-sm text-primary font-medium bg-primary/10 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
