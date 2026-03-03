@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
 
@@ -23,8 +24,14 @@ export function Hero() {
           {/* Conteúdo principal */}
           <div className={`space-y-6 sm:space-y-8 lg:pr-8 xl:pr-12 ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-center sm:text-left">
-              <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-primary/20 bg-card flex items-center justify-center flex-shrink-0">
-                <img src="/perfil.jpg" alt="foto perfil" className="w-full h-full object-cover object-center" />
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-primary/20 bg-card flex items-center justify-center flex-shrink-0">
+                <Image
+                  src="/perfil.jpg"
+                  alt="Caio Dias - Foto de Perfil"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
               </div>
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-balance">Caio Dias</h1>
@@ -59,6 +66,7 @@ export function Hero() {
                 href="https://github.com/caiodiasol"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Meu Perfil no Github"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github className="h-6 w-6" />
@@ -67,11 +75,16 @@ export function Hero() {
                 href="https://www.linkedin.com/in/caiodiasol/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Meu Perfil no LinkedIn"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:caiodiasol@proton.me" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="mailto:caiodiasol@proton.me"
+                aria-label="Enviar um e-mail para mim"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Mail className="h-6 w-6" />
               </a>
             </div>
@@ -86,7 +99,7 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-primary"></div>
                 <span className="ml-2 sm:ml-4 text-muted-foreground text-xs sm:text-sm">portfolio.tsx</span>
               </div>
-              <div className="space-y-2 min-w-max">
+              <div className="space-y-2 w-full overflow-hidden">
                 <div>
                   <span className="text-blue-400">const</span> <span className="text-yellow-400">developer</span> ={" "}
                   {`{`}
@@ -106,7 +119,7 @@ export function Hero() {
                   <span className="text-orange-400">&apos;TypeScript&apos;</span>,
                 </div>
                 <div className="ml-8">
-                  <span className="text-orange-400">&apos;Django&apos;</span>, <span className="text-orange-400">&apos;Python&apos;</span>,{" "}
+                  <span className="text-orange-400">&apos;Docker&apos;</span>, <span className="text-orange-400">&apos;Python&apos;</span>,{" "}
                   <span className="text-orange-400">&apos;JavaScript&apos;</span>,{" "}
                 </div>
                 <div className="ml-8">
@@ -114,9 +127,13 @@ export function Hero() {
                   <span className="text-orange-400">&apos;Git&apos;</span>{" "}
                 </div>
                 <div className="ml-4">],</div>
-                <div className="ml-4">
-                  <span className="text-green-400">passion</span>:{" "}
-                  <span className="text-orange-400">&apos;Implementar soluções centradas na experiência do usuário&apos;</span>
+                <div className="ml-4 flex flex-col xl:flex-row xl:items-start gap-1 xl:gap-2">
+                  <div className="shrink-0">
+                    <span className="text-green-400">passion</span>:
+                  </div>
+                  <span className="text-orange-400 break-words whitespace-pre-wrap">
+                    &apos;Implementar soluções centradas na experiência do usuário&apos;
+                  </span>
                 </div>
                 <div>{`}`}</div>
               </div>
