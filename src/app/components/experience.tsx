@@ -59,7 +59,13 @@ export function Experience() {
   return (
     <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 bg-card/30">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12 text-center">
             <span className="text-gradient">Experiência</span>
           </h2>
@@ -134,7 +140,7 @@ export function Experience() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

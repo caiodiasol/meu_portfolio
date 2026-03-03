@@ -74,7 +74,13 @@ export function Skills() {
   return (
     <section id="skills-section" className="py-16 sm:py-20 px-4 sm:px-6 bg-background">
       <div className="container mx-auto">
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">Competências <span className="text-gradient">Técnicas</span>
             </h2>
@@ -162,7 +168,7 @@ export function Skills() {
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

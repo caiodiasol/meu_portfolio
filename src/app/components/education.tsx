@@ -116,7 +116,13 @@ export function Education() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl mx-auto"
+        >
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -128,7 +134,7 @@ export function Education() {
               <EducationCard key={index} data={education} />
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

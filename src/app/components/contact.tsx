@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -28,7 +29,7 @@ export function Contact() {
       if (response.ok) {
         setShowSuccess(true)
         form.reset()
-        
+
         // Esconder mensagem após 5 segundos
         setTimeout(() => {
           setShowSuccess(false)
@@ -44,7 +45,13 @@ export function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
             Vamos <span className="text-gradient">Conversar</span>
           </h2>
@@ -81,7 +88,7 @@ export function Contact() {
                     </div>
                     <div className="min-w-0">
                       <p className="font-medium text-sm sm:text-base">Email</p>
-                      <a 
+                      <a
                         href="mailto:caiodiasol@proton.me"
                         className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                       >
@@ -96,8 +103,10 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-sm sm:text-base">Telefone</p>
-                      <a 
-                        href="tel:+5573991053176"
+                      <a
+                        href="https://wa.me/5573991053176"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                       >
                         +55 (73) 99105-3176
@@ -120,9 +129,9 @@ export function Contact() {
 
             {/* Formulário */}
             <div>
-              <form 
-                action="https://formsubmit.co/caiodiasol@proton.me" 
-                method="POST" 
+              <form
+                action="https://formsubmit.co/caiodiasol@proton.me"
+                method="POST"
                 className="space-y-4 sm:space-y-6"
                 onSubmit={handleSubmit}
               >
@@ -176,8 +185,8 @@ export function Contact() {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-primary text-primary-foreground hover:cursor-pointer hover:bg-accent"
                   disabled={isSubmitting}
                 >
@@ -193,7 +202,7 @@ export function Contact() {
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

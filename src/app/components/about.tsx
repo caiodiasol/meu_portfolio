@@ -6,7 +6,13 @@ export function About() {
   return (
     <section id="about" className="py-16 sm:py-20 px-6 sm:px-6">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
             Sobre <span className="text-gradient">Mim</span>
           </h2>
@@ -58,7 +64,7 @@ export function About() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
