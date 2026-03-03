@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -92,7 +93,11 @@ export function Hero() {
 
           {/* Área visual/código */}
           <div className={`${mounted ? "animate-fade-in-up" : "opacity-0"} lg:delay-200 mt-8 lg:mt-0 w-full`}>
-            <div className="bg-card border border-border rounded-lg p-3 sm:p-6 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
+            <motion.div
+              className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-3 sm:p-6 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -137,7 +142,7 @@ export function Hero() {
                 </div>
                 <div>{`}`}</div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
