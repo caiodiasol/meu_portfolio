@@ -1,3 +1,6 @@
+"use client"
+
+import { motion } from "framer-motion"
 import { Calendar, MapPin, Briefcase } from "lucide-react"
 
 export function Experience() {
@@ -8,14 +11,14 @@ export function Experience() {
       company: "QuadCode",
       location: "Belo Horizonte, MG",
       description:
-      "Atuei no desenvolvimento de uma aplicação web voltada ao gerenciamento de participantes em lives e à geração de rankings em tempo real. O projeto teve como foco otimizar o engajamento e a confiabilidade dos participantes durante as transmissões, garantindo interatividade fluida e atualização instantânea das informações. Implementei formulários dinâmicos e validação de dados no front-end, além de integrar o sistema ao Firebase Realtime Database para sincronização contínua entre usuários e servidor.",
+        "Atuei no desenvolvimento de uma aplicação web voltada ao gerenciamento de participantes em lives e à geração de rankings em tempo real. O projeto teve como foco otimizar o engajamento e a confiabilidade dos participantes durante as transmissões, garantindo interatividade fluida e atualização instantânea das informações. Implementei formulários dinâmicos e validação de dados no front-end, além de integrar o sistema ao Firebase Realtime Database para sincronização contínua entre usuários e servidor.",
       technologies: ["HTML", "CSS", "JavaScript", "Firebase"],
       achievements: [
-      "Redução de 42% na taxa de inadimplência dos participantes, por meio da validação automática de inscrições e confirmação em tempo real.",
-      "Aumento de 67% na presença efetiva nas lives, com controle ativo de acessos e gamificação por rankings dinâmicos.",
-      "Sincronização instantânea dos dados de participação e desempenho, eliminando atrasos e inconsistências durante as transmissões.",
-      "Melhoria perceptível da experiência do usuário, refletida em maior engajamento e feedbacks positivos nas sessões interativas.",
-],
+        "Redução de 42% na taxa de inadimplência dos participantes, por meio da validação automática de inscrições e confirmação em tempo real.",
+        "Aumento de 67% na presença efetiva nas lives, com controle ativo de acessos e gamificação por rankings dinâmicos.",
+        "Sincronização instantânea dos dados de participação e desempenho, eliminando atrasos e inconsistências durante as transmissões.",
+        "Melhoria perceptível da experiência do usuário, refletida em maior engajamento e feedbacks positivos nas sessões interativas.",
+      ],
 
     },
     {
@@ -51,12 +54,17 @@ export function Experience() {
 
             <div className="space-y-8 sm:space-y-12">
               {experiences.map((exp, index) => (
-                <div key={index} className="group relative">
+                <motion.div
+                  key={index}
+                  className="group relative"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   {/* Ponto na linha do tempo */}
                   <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background hidden lg:block group-hover:scale-125 transition-transform"></div>
 
                   <div className="lg:ml-20">
-                    <div className="bg-card border border-border rounded-xl p-4 sm:p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                    <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-4 sm:p-6 lg:p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden">
                       {/* Header da experiência */}
                       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 sm:mb-6">
                         <div className="space-y-2">
@@ -106,7 +114,7 @@ export function Experience() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
