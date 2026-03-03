@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -162,14 +163,18 @@ export function Projects() {
           </h2>
 
           <div className="relative">
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-xl">
               <div
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-500 ease-in-out py-4 overflow-visible"
                 style={{ transform: `translateX(-${currentProjectIndex * 100}%)` }}
               >
                 {projects.map((project, index) => (
                   <div key={index} className="w-full flex-shrink-0">
-                    <div className="group relative bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 mx-1 sm:mx-2">
+                    <motion.div
+                      className="group relative bg-card/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 mx-1 sm:mx-2"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
                       <div className="h-48 sm:h-64 lg:h-80 bg-muted/20 flex items-center justify-center p-2 sm:p-4 relative z-10">
                         <img
                           src={project.image || "/placeholder.svg"}
@@ -178,16 +183,16 @@ export function Projects() {
                         />
                       </div>
 
-                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3 relative z-10">
-                        <h3 className="text-base sm:text-lg font-semibold text-foreground">{project.title}</h3>
+                      <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 relative z-10">
+                        <h3 className="text-xl sm:text-2xl font-bold text-foreground">{project.title}</h3>
 
-                        <p className="text-xs leading-relaxed sm:text-sm text-muted-foreground text-justify sm:text-left min-h-[3.5rem] sm:min-h-[4.5rem]">{project.description}</p>
+                        <p className="text-xs leading-relaxed sm:text-sm lg:text-base text-muted-foreground text-justify sm:text-left min-h-[3.5rem] sm:min-h-[4.5rem]">{project.description}</p>
 
-                        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-primary/10 text-primary text-[10px] sm:text-xs rounded-full border border-primary/20"
+                              className="px-2 sm:px-3 py-1 sm:py-1.5 bg-primary/10 text-primary text-xs sm:text-sm rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                             >
                               {tech}
                             </span>
@@ -220,7 +225,7 @@ export function Projects() {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </div>

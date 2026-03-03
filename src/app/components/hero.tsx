@@ -39,7 +39,7 @@ export function Hero() {
               </div>
             </div>
 
-            <p className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-lg lg:max-w-2xl text-justify sm:text-left">
+            <p className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl w-full text-center sm:text-left text-pretty mx-auto sm:mx-0">
               Crio soluções digitais que unem estratégia, tecnologia e experiência do usuário. Do planejamento à implementação, busco compreender o problema com profundidade para desenvolver sistemas consistentes, escaláveis e alinhados aos objetivos do negócio. Cada projeto é uma oportunidade de traduzir lógica em clareza, transformar dados em decisões e criar experiências fluidas que refletem cuidado em cada detalhe — do backend à interface. Meu foco está em construir produtos que gerem impacto real, combinando precisão técnica, visão analítica e uma engenharia orientada à qualidade e evolução contínua.
             </p>
 
@@ -91,8 +91,8 @@ export function Hero() {
           </div>
 
           {/* Área visual/código */}
-          <div className={`${mounted ? "animate-fade-in-up" : "opacity-0"} lg:delay-200 hidden lg:block`}>
-            <div className="bg-card border border-border rounded-lg p-4 sm:p-6 font-mono text-xs sm:text-sm">
+          <div className={`${mounted ? "animate-fade-in-up" : "opacity-0"} lg:delay-200 mt-8 lg:mt-0 w-full`}>
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-6 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
