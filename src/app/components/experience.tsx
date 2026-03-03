@@ -6,6 +6,23 @@ import { Calendar, MapPin, Briefcase } from "lucide-react"
 export function Experience() {
   const experiences = [
     {
+      period: "2026 Janeiro – O Momento",
+      role: "Desenvolvedor Full Stack",
+      company: "NewSun Energy Group",
+      location: "Remoto",
+      description:
+        "Atuo como Desenvolvedor Full Stack na NewSun Energy Group, focando no desenvolvimento de soluções internas para sistemas corporativos. Minha atuação abrange desde a concepção de APIs REST escaláveis no backend até a integração fluida com o frontend, priorizando sempre a organização de código, performance e a entrega de valor ao negócio.",
+      technologies: ["Node.js", "TypeScript", "Fastify", "Prisma", "PostgreSQL", "Redis", "Docker", "PNPM"],
+      achievements: [
+        "Desenvolvimento de APIs REST escaláveis utilizando Node.js, Fastify e TypeScript, com implementação de regras de negócio complexas e endpoints paginados.",
+        "Modelagem de dados e gerenciamento de migrations em PostgreSQL utilizando Prisma ORM, garantindo integridade e performance.",
+        "Integração do Redis para cache e otimização de performance em sistemas corporativos de alta demanda.",
+        "Padronização de ambientes de desenvolvimento através do uso de Docker e Docker Compose em infraestrutura monorepo com PNPM.",
+        "Implementação de sistemas auxiliares críticos, como logs de auditoria e notificações acionáveis.",
+        "Colaboração ativa em refinamentos técnicos, debugging e suporte ao time, além de revisões de código e práticas de integração contínua."
+      ],
+    },
+    {
       period: "2025 Julho – 2025 Agosto",
       role: "Desenvolvedor de Software",
       company: "QuadCode",
@@ -19,7 +36,6 @@ export function Experience() {
         "Sincronização instantânea dos dados de participação e desempenho, eliminando atrasos e inconsistências durante as transmissões.",
         "Melhoria perceptível da experiência do usuário, refletida em maior engajamento e feedbacks positivos nas sessões interativas.",
       ],
-
     },
     {
       period: "2025 Fevereiro — 2025 Junho",
