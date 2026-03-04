@@ -8,6 +8,15 @@ import { Button } from "@/components/ui/button"
 export function Projects() {
   const projects = [
     {
+      title: "Tarot e Terapias Energéticas",
+      description:
+        "Site profissional apresentando serviços de leitura de Tarot, informações sobre atendimentos, loja de produtos e formulário de contato. Desenvolvido com foco em performance mobile e carregamento otimizado.",
+      image: "/tarot.png",
+      technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "Framer Motion", "Three.js", "shadcn/ui", "React Bits", "Zod", "React Hook Form"],
+      github: "https://github.com/caiodiasol/tarot_landpage",
+      live: "https://www.tarotraissa.com.br/"
+    },
+    {
       title: "Desafio Técnico – GDASH | Sistema de Monitoramento Climático",
       description:
         "Sistema full stack desenvolvido como desafio técnico para a GDASH, focado na coleta, processamento e visualização de dados climáticos em tempo quase real. A solução implementa um pipeline distribuído com mensageria, múltiplos serviços, geração de insights com IA e um dashboard interativo, priorizando resiliência, escalabilidade e boas práticas de arquitetura.",
