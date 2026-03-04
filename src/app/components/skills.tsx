@@ -31,7 +31,7 @@ export function Skills() {
       bgColor: "bg-card/80 dark:bg-card/80",
       borderColor: "border-purple-500/30 dark:border-purple-400/20",
       iconBg: "bg-purple-500/20",
-      skills: ["Git & Github", "Postman", "Power BI", "VS Code", "Figma", "Notion"],
+      skills: ["Git & Github", "Postman", "Power BI", "VS Code", "Figma", "Notion", "Jira", "DBeaver"],
     },
   ]
 
@@ -52,7 +52,7 @@ export function Skills() {
       bgColor: "bg-card/80 dark:bg-card/80",
       borderColor: "border-cyan-500/30 dark:border-cyan-400/20",
       iconBg: "bg-cyan-500/20",
-      skills: ["Metaverso", "Banco de Dados", "Ploomes", "Power BI", "Virtual Reality"],
+      skills: ["Dev. Full Stack", "Metaverso", "Banco de Dados", "Ploomes", "Virtual Reality"],
     },
     {
       title: "Soft Skills",

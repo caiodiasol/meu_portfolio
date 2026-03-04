@@ -23,7 +23,7 @@ export function Experience() {
       ],
     },
     {
-      period: "2025 Julho – 2025 Agosto",
+      period: "2025 Julho – 2025 Dezembro",
       role: "Desenvolvedor de Software",
       company: "QuadCode",
       location: "Belo Horizonte, MG",
