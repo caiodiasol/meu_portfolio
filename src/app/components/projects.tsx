@@ -248,13 +248,13 @@ export function Projects() {
 
             <button
               onClick={prevProject}
-              className="absolute left-2 sm:left-4 top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
+              className="absolute left-2 sm:left-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
             >
               <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
             <button
               onClick={nextProject}
-              className="absolute right-2 sm:right-4 top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
+              className="absolute right-2 sm:right-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
             >
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
