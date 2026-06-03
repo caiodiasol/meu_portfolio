@@ -25,7 +25,12 @@ export function Hero() {
           {/* Conteúdo principal */}
           <div className={`space-y-6 sm:space-y-8 lg:pr-8 xl:pr-12 ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-center sm:text-left">
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-primary/20 bg-card flex items-center justify-center flex-shrink-0">
+              <button
+                type="button"
+                onClick={() => scrollToSection("about")}
+                aria-label="Ir para a seção Sobre"
+                className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-primary ring-2 ring-primary/30 shadow-lg shadow-primary/40 bg-card flex items-center justify-center flex-shrink-0 cursor-pointer transition-all duration-300 hover:border-accent hover:ring-accent/70 hover:shadow-primary/60 hover:scale-105 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary"
+              >
                 <Image
                   src="/perfil.jpg"
                   alt="Caio Dias - Foto de Perfil"
@@ -33,15 +38,22 @@ export function Hero() {
                   className="object-cover object-center"
                   priority
                 />
-              </div>
+              </button>
               <div>
-                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-balance">Caio Dias</h1>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("about")}
+                  aria-label="Ir para a seção Sobre"
+                  className="cursor-pointer block mx-auto sm:mx-0 text-center sm:text-left transition-transform duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+                >
+                  <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-balance">Caio Dias</h1>
+                </button>
                 <h2 className="text-lg sm:text-xl lg:text-2xl text-primary font-medium">Desenvolvedor Full Stack</h2>
               </div>
             </div>
 
             <p className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl w-full text-center sm:text-left text-pretty mx-auto sm:mx-0">
-              Crio soluções digitais que unem estratégia, tecnologia e experiência do usuário. Do planejamento à implementação, busco compreender o problema com profundidade para desenvolver sistemas consistentes, escaláveis e alinhados aos objetivos do negócio. Cada projeto é uma oportunidade de traduzir lógica em clareza, transformar dados em decisões e criar experiências fluidas que refletem cuidado em cada detalhe — do backend à interface. Meu foco está em construir produtos que gerem impacto real, combinando precisão técnica, visão analítica e uma engenharia orientada à qualidade e evolução contínua.
+              Acredito que tecnologia só faz sentido quando resolve problemas reais. Foi buscando formas mais inteligentes de otimizar processos e simplificar desafios que encontrei no desenvolvimento de software uma ferramenta para transformar ideias em soluções concretas. Hoje, desenvolvo sistemas, automações e plataformas que unem tecnologia, negócios e experiência do usuário, sempre com foco em criar produtos úteis, intuitivos e preparados para evoluir. No fim das contas, o que mais me motiva é gerar impacto real e facilitar a vida de quem está do outro lado da tela.
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
