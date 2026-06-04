@@ -124,7 +124,7 @@ export function Contact() {
                     >
                       <a
                         href="mailto:caiodiasol@proton.me"
-                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300 cursor-pointer"
+                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20"
                         title="Enviar email"
                       >
                         <Mail className="h-5 w-5 text-primary" />
@@ -148,7 +148,7 @@ export function Contact() {
                         href="https://wa.me/5573991053176"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300 cursor-pointer"
+                        className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20"
                         title="Enviar WhatsApp"
                       >
                         <Phone className="h-6 w-6 text-primary" />
@@ -243,12 +243,12 @@ export function Contact() {
                   <motion.div variants={itemVariants}>
                     <Button
                       type="submit"
-                      className="w-full bg-primary text-primary-foreground hover:cursor-pointer hover:bg-accent h-12 font-semibold transition-all duration-300 active:scale-[0.98]"
+                      className="w-full bg-primary text-primary-foreground hover:bg-accent h-12 font-semibold"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          <Loader2 className="h-5 w-5 shrink-0 animate-spin" />
                           Enviando...
                         </>
                       ) : (

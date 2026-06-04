@@ -47,7 +47,7 @@ export function ThemeToggle() {
       variant="outline"
       size="sm"
       onClick={toggleTheme}
-      className="border-primary/20 hover:bg-primary/10 hover:cursor-pointer bg-transparent"
+      className="border-primary/20 hover:bg-primary/10 bg-transparent"
     >
       {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
     </Button>

@@ -165,6 +165,22 @@
   width: 100%;
 }
 
+/* Ampliação no hover — botões e links do portfólio (usa `scale` para não conflitar com `translate`) */
+@layer components {
+  button:not(:disabled),
+  a[href] {
+    cursor: pointer;
+    transition-property: scale, color, background-color, border-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
+  button:not(:disabled):hover,
+  a[href]:hover {
+    scale: 1.05;
+  }
+}
+
 /* Gradiente adaptativo para ambos os temas */
 .text-gradient {
   background: linear-gradient(135deg, var(--primary), var(--accent));

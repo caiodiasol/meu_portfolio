@@ -57,19 +57,19 @@ export function Header() {
 
           {/* Navegação Desktop */}
           <div className="hidden lg:flex items-center space-x-6">
-            <button onClick={() => scrollToSection("about")} className="link-hover text-muted-foreground hover:cursor-pointer hover:text-primary text-sm">
+            <button onClick={() => scrollToSection("about")} className="link-hover text-muted-foreground hover:text-primary text-base">
               Sobre
             </button>
-            <button onClick={() => scrollToSection("education")} className="link-hover text-muted-foreground hover:cursor-pointer hover:text-primary text-sm">
+            <button onClick={() => scrollToSection("education")} className="link-hover text-muted-foreground hover:text-primary text-base">
               Educação
             </button>
-            <button onClick={() => scrollToSection("experience")} className="link-hover text-muted-foreground hover:cursor-pointer hover:text-primary text-sm">
+            <button onClick={() => scrollToSection("experience")} className="link-hover text-muted-foreground hover:text-primary text-base">
               Experiência
             </button>
-            <button onClick={() => scrollToSection("projects")} className="link-hover text-muted-foreground hover:cursor-pointer hover:text-primary text-sm">
+            <button onClick={() => scrollToSection("projects")} className="link-hover text-muted-foreground hover:text-primary text-base">
               Projetos
             </button>
-            <button onClick={() => scrollToSection("skills-section")} className="link-hover text-muted-foreground hover:cursor-pointer hover:text-primary text-sm">
+            <button onClick={() => scrollToSection("skills-section")} className="link-hover text-muted-foreground hover:text-primary text-base">
               Competências
             </button>
           </div>
@@ -80,23 +80,23 @@ export function Header() {
               variant="outline"
               size="sm"
               onClick={downloadResume}
-              className="border-primary text-primary hover:cursor-pointer hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
             >
-              <Download className="mr-2 h-4 w-4" />
+              <Download className="h-4 w-4 shrink-0" />
               Currículo
             </Button>
             <Button
               onClick={() => scrollToSection("projects")}
               variant="outline"
               size="sm"
-              className="border-primary text-primary hover:bg-primary hover:cursor-pointer hover:text-primary-foreground bg-transparent"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
             >
               Ver Projetos
             </Button>
             <Button
               onClick={() => scrollToSection("contact")}
               size="sm"
-              className="bg-primary text-primary-foreground hover:cursor-pointer hover:bg-accent"
+              className="bg-primary text-primary-foreground hover:bg-accent"
             >
               Entrar em Contato
             </Button>
@@ -105,7 +105,7 @@ export function Header() {
           {/* Menu Hambúrguer Mobile */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary cursor-pointer transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -129,7 +129,7 @@ export function Header() {
               <div className="flex justify-end">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-primary/10 rounded-lg transition-colors cursor-pointer"
+                  className="p-2 hover:bg-primary/10 rounded-lg"
                   aria-label="Fechar menu"
                 >
                   <X className="h-5 w-5 text-foreground" />
@@ -139,31 +139,31 @@ export function Header() {
               <div className="flex flex-col space-y-3">
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2 cursor-pointer text-base"
+                  className="text-left text-muted-foreground hover:text-primary py-2 text-base"
                 >
                   Sobre
                 </button>
                 <button
                   onClick={() => scrollToSection("education")}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2 cursor-pointer text-base"
+                  className="text-left text-muted-foreground hover:text-primary py-2 text-base"
                 >
                   Educação
                 </button>
                 <button
                   onClick={() => scrollToSection("experience")}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2 cursor-pointer text-base"
+                  className="text-left text-muted-foreground hover:text-primary py-2 text-base"
                 >
                   Experiência
                 </button>
                 <button
                   onClick={() => scrollToSection("projects")}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2 cursor-pointer text-base"
+                  className="text-left text-muted-foreground hover:text-primary py-2 text-base"
                 >
                   Projetos
                 </button>
                 <button
                   onClick={() => scrollToSection("skills-section")}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2 cursor-pointer text-base"
+                  className="text-left text-muted-foreground hover:text-primary py-2 text-base"
                 >
                   Competências
                 </button>
@@ -174,23 +174,23 @@ export function Header() {
                   variant="outline"
                   size="sm"
                   onClick={downloadResume}
-                  className="w-full border-primary text-primary hover:cursor-pointer hover:bg-primary hover:text-primary-foreground bg-transparent"
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
                 >
-                  <Download className="mr-2 h-4 w-4" />
+                  <Download className="h-4 w-4 shrink-0" />
                   Currículo
                 </Button>
                 <Button
                   onClick={() => scrollToSection("projects")}
                   variant="outline"
                   size="sm"
-                  className="w-full border-primary text-primary hover:bg-primary hover:cursor-pointer hover:text-primary-foreground bg-transparent"
+                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
                 >
                   Ver Projetos
                 </Button>
                 <Button
                   onClick={() => scrollToSection("contact")}
                   size="sm"
-                  className="w-full bg-primary text-primary-foreground hover:cursor-pointer hover:bg-accent"
+                  className="w-full bg-primary text-primary-foreground hover:bg-accent"
                 >
                   Entrar em Contato
                 </Button>

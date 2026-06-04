@@ -218,23 +218,33 @@ export function Projects() {
                           <Button
                             variant="outline"
                             size="sm"
-                            className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-[10px] sm:text-xs"
+                            className="w-full sm:w-auto justify-center border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-[10px] sm:text-xs"
                             asChild
                           >
-                            <a href={project.github} target="_blank" rel="noopener noreferrer">
-                              <Github className="mr-1 h-3 w-3" />
-                              Código
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center gap-1.5"
+                            >
+                              <Github className="h-3 w-3 shrink-0" />
+                              <span>Código</span>
                             </a>
                           </Button>
                           {project.live && (
                             <Button
                               size="sm"
-                              className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-accent text-[10px] sm:text-xs"
+                              className="w-full sm:w-auto justify-center bg-primary text-primary-foreground hover:bg-accent text-[10px] sm:text-xs"
                               asChild
                             >
-                              <a href={project.live} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="mr-1 h-3 w-3" />
-                                Ver Projeto
+                              <a
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-1.5"
+                              >
+                                <ExternalLink className="h-3 w-3 shrink-0" />
+                                <span>Ver Projeto</span>
                               </a>
                             </Button>
                           )}
@@ -248,13 +258,13 @@ export function Projects() {
 
             <button
               onClick={prevProject}
-              className="absolute left-2 sm:left-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
+              className="absolute left-2 sm:left-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full z-30"
             >
               <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
             <button
               onClick={nextProject}
-              className="absolute right-2 sm:right-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full transition-all hover:border-primary hover:shadow-[0_0_15px_hsl(var(--primary))] active:scale-90 cursor-pointer z-30"
+              className="absolute right-2 sm:right-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full z-30"
             >
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
@@ -264,8 +274,8 @@ export function Projects() {
                 <button
                   key={index}
                   onClick={() => setCurrentProjectIndex(index)}
-                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer active:scale-90 ${currentProjectIndex === index
-                    ? "bg-primary scale-125 shadow-[0_0_10px_hsl(var(--primary))]"
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${currentProjectIndex === index
+                    ? "bg-primary scale-125 hover:scale-[1.31]"
                     : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
                     }`}
                 />
