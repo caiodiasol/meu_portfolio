@@ -2,8 +2,82 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { ThemeToggle } from "./theme-toggle"
 import { Download, Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+const CV_FILES = {
+  pt: { href: "/Caio_CV_PT.pdf", filename: "Caio_CV_PT.pdf", label: "Português" },
+  en: { href: "/Caio_CV_EN.pdf", filename: "Caio_CV_EN.pdf", label: "English" },
+} as const
+
+function downloadCv(href: string, filename: string) {
+  const link = document.createElement("a")
+  link.href = href
+  link.download = filename
+  link.click()
+}
+
+function ResumeDownloadButton({
+  className,
+  fullWidth = false,
+  onAfterSelect,
+}: {
+  className?: string
+  fullWidth?: boolean
+  onAfterSelect?: () => void
+}) {
+  const handleDownload = (href: string, filename: string) => {
+    downloadCv(href, filename)
+    onAfterSelect?.()
+  }
+
+  return (
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          aria-haspopup="menu"
+          className={cn(
+            "border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent",
+            fullWidth && "w-full",
+            className,
+          )}
+        >
+          <Download className="h-4 w-4 shrink-0" />
+          Currículo
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="end"
+        sideOffset={6}
+        className="z-[70] min-w-0 w-[var(--radix-dropdown-menu-trigger-width)] border-primary/30 bg-popover p-1"
+      >
+        <DropdownMenuItem
+          className="cursor-pointer justify-center"
+          onClick={() => handleDownload(CV_FILES.pt.href, CV_FILES.pt.filename)}
+        >
+          {CV_FILES.pt.label}
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="cursor-pointer justify-center"
+          onClick={() => handleDownload(CV_FILES.en.href, CV_FILES.en.filename)}
+        >
+          {CV_FILES.en.label}
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -32,13 +106,6 @@ export function Header() {
     const element = document.getElementById(sectionId)
     element?.scrollIntoView({ behavior: "smooth" })
     setIsMobileMenuOpen(false)
-  }
-
-  const downloadResume = () => {
-    const link = document.createElement("a")
-    link.href = "/CaioDias.pdf"
-    link.download = "CaioDias.pdf"
-    link.click()
   }
 
   return (
@@ -76,15 +143,7 @@ export function Header() {
 
           {/* Ações Desktop */}
           <div className="hidden lg:flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={downloadResume}
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-            >
-              <Download className="h-4 w-4 shrink-0" />
-              Currículo
-            </Button>
+            <ResumeDownloadButton />
             <Button
               onClick={() => scrollToSection("projects")}
               variant="outline"
@@ -170,15 +229,7 @@ export function Header() {
               </div>
               
               <div className="flex flex-col space-y-2 pt-4 border-t border-border">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={downloadResume}
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-                >
-                  <Download className="h-4 w-4 shrink-0" />
-                  Currículo
-                </Button>
+                <ResumeDownloadButton fullWidth onAfterSelect={() => setIsMobileMenuOpen(false)} />
                 <Button
                   onClick={() => scrollToSection("projects")}
                   variant="outline"
