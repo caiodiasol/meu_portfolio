@@ -179,6 +179,12 @@
   a[href]:hover {
     scale: 1.05;
   }
+
+  .profile-avatar-btn {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+  }
 }
 
 /* Gradiente adaptativo para ambos os temas */

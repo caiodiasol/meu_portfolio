@@ -5,8 +5,10 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
+import { useLanguage } from "@/lib/i18n/language-provider"
 
 export function Hero() {
+  const { messages: m } = useLanguage()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -22,38 +24,38 @@ export function Hero() {
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 pt-24 sm:pt-20">
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
-          {/* Conteúdo principal */}
           <div className={`space-y-6 sm:space-y-8 lg:pr-8 xl:pr-12 ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
             <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mb-6 sm:mb-8 text-center sm:text-left">
               <button
                 type="button"
                 onClick={() => scrollToSection("about")}
-                aria-label="Ir para a seção Sobre"
-                className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-primary bg-card flex items-center justify-center flex-shrink-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary"
+                aria-label={m.hero.goToAbout}
+                className="profile-avatar-btn size-24 sm:size-28 lg:size-32 shrink-0 overflow-hidden rounded-full border-2 border-primary bg-card p-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary"
               >
                 <Image
                   src="/perfil.jpg"
-                  alt="Caio Dias - Foto de Perfil"
-                  fill
-                  className="object-cover object-center"
+                  alt={m.hero.profileAlt}
+                  width={128}
+                  height={128}
                   priority
+                  className="size-full object-cover object-center"
                 />
               </button>
               <div>
                 <button
                   type="button"
                   onClick={() => scrollToSection("about")}
-                  aria-label="Ir para a seção Sobre"
+                  aria-label={m.hero.goToAbout}
                   className="block mx-auto sm:mx-0 text-center sm:text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
                 >
                   <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-balance">Caio Dias</h1>
                 </button>
-                <h2 className="text-lg sm:text-xl lg:text-2xl text-primary font-medium">Desenvolvedor Full Stack</h2>
+                <h2 className="text-lg sm:text-xl lg:text-2xl text-primary font-medium">{m.hero.role}</h2>
               </div>
             </div>
 
             <p className="text-sm leading-relaxed sm:text-base lg:text-lg xl:text-xl text-muted-foreground max-w-2xl w-full text-center sm:text-left text-pretty mx-auto sm:mx-0">
-              Acredito que tecnologia só faz sentido quando resolve problemas reais. Foi buscando formas mais inteligentes de otimizar processos e simplificar desafios que encontrei no desenvolvimento de software uma ferramenta para transformar ideias em soluções concretas. Hoje, desenvolvo sistemas, automações e plataformas que unem tecnologia, negócios e experiência do usuário, sempre com foco em criar produtos úteis, intuitivos e preparados para evoluir. No fim das contas, o que mais me motiva é gerar impacto real e facilitar a vida de quem está do outro lado da tela.
+              {m.hero.bio}
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
@@ -61,7 +63,7 @@ export function Hero() {
                 onClick={() => scrollToSection("projects")}
                 className="w-full sm:w-auto justify-center bg-primary text-primary-foreground hover:bg-accent"
               >
-                Ver Projetos
+                {m.hero.viewProjects}
                 <ExternalLink className="h-4 w-4 shrink-0" />
               </Button>
               <Button
@@ -69,17 +71,16 @@ export function Hero() {
                 onClick={() => scrollToSection("contact")}
                 className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
-                Entrar em Contato
+                {m.hero.contact}
               </Button>
             </div>
 
-            {/* Links sociais */}
             <div className="flex gap-6 pt-4 justify-center sm:justify-start">
               <a
                 href="https://github.com/caiodiasol"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Meu Perfil no Github"
+                aria-label={m.hero.githubAria}
                 className="inline-flex text-muted-foreground hover:text-primary"
               >
                 <Github className="h-6 w-6" />
@@ -88,14 +89,14 @@ export function Hero() {
                 href="https://www.linkedin.com/in/caiodiasol/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Meu Perfil no LinkedIn"
+                aria-label={m.hero.linkedinAria}
                 className="inline-flex text-muted-foreground hover:text-primary"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
                 href="mailto:caiodiasol@proton.me"
-                aria-label="Enviar um e-mail para mim"
+                aria-label={m.hero.emailAria}
                 className="inline-flex text-muted-foreground hover:text-primary"
               >
                 <Mail className="h-6 w-6" />
@@ -103,11 +104,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Área visual/código */}
           <div className={`${mounted ? "animate-fade-in-up" : "opacity-0"} lg:delay-200 mt-8 lg:mt-0 w-full`}>
-            <motion.div
-              className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-3 sm:p-6 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-            >
+            <motion.div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-3 sm:p-6 font-mono text-[10px] sm:text-xs md:text-sm overflow-x-auto hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -147,7 +145,7 @@ export function Hero() {
                     <span className="text-green-400">passion</span>:
                   </div>
                   <span className="text-orange-400 break-words whitespace-pre-wrap">
-                    &apos;Implementar soluções centradas na experiência do usuário&apos;
+                    &apos;{m.hero.codePassion}&apos;
                   </span>
                 </div>
                 <div>{`}`}</div>

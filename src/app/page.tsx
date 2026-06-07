@@ -1,3 +1,4 @@
+import { AppProviders } from "./components/app-providers"
 import { Header } from "./components/header"
 import { Hero } from "./components/hero"
 import { About } from "./components/about"
@@ -9,17 +10,19 @@ import { Contact } from "./components/contact"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Education />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-    </div>
+    <AppProviders>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+      </div>
+    </AppProviders>
   )
 }

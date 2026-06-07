@@ -1,0 +1,98 @@
+export const projectsBase = [
+  {
+    image: "/tarot.png",
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "Framer Motion", "Three.js", "shadcn/ui", "React Bits", "Zod", "React Hook Form"],
+    github: "https://github.com/caiodiasol/tarot_landpage",
+    live: "https://www.tarotraissa.com.br/",
+  },
+  {
+    image: "/dashboard_gdash.png",
+    technologies: ["TypeScript", "React", "Vite", "TailwindCSS", "shadcn/ui", "Recharts", "NestJS", "MongoDB", "Mongoose", "Go", "Python", "RabbitMQ", "Docker", "Docker Compose", "JWT", "OpenAI", "Google Gemini", "API Rest"],
+    github: "https://github.com/caiodiasol/desafio-gdash-2025-02/tree/caio-dias-oliveira",
+    live: null,
+  },
+  {
+    image: "/newsun_energy.png",
+    technologies: ["TypeScript", "Next.js", "React", "NestJS", "Prisma ORM", "MySQL", "TailwindCSS", "Zod", "Docker", "API Rest"],
+    github: "https://github.com/caiodiasol/desafio-dev-fullstack",
+    live: null,
+  },
+  {
+    image: "/dietaopenai.png",
+    technologies: ["Next.js", "Node.js", "React", "OpenAI", "API Rest"],
+    github: "https://github.com/caiodiasol/gerador_dieta_openai_frontend",
+    live: "https://dietaai-rho.vercel.app/",
+  },
+  {
+    image: "/efood_print.png",
+    technologies: ["React", "TypeScript", "Redux Toolkit", "API Rest"],
+    github: "https://github.com/caiodiasol/efood",
+    live: "https://efood-jet-omega.vercel.app/",
+  },
+  {
+    image: "/eplay.jpg",
+    technologies: ["React", "TypeScript", "CSS-in-JS", "React Router DOM"],
+    github: "https://github.com/caiodiasol/eplay",
+    live: "https://eplay-woad.vercel.app/",
+  },
+  {
+    image: "/agenda_contatos.jpg",
+    technologies: ["Cypress", "CSS", "JavaScript"],
+    github: "https://github.com/caiodiasol/cypress_teste_agenda_ebac",
+    live: "https://agenda-contatos-react.vercel.app/",
+  },
+  {
+    image: "/festival.jpg",
+    technologies: ["Html", "CSS", "JavaScript", "Parcel"],
+    github: "https://github.com/caiodiasol/caio_festival",
+    live: "https://caio-festival.vercel.app/",
+  },
+  {
+    image: "/ebac_tech.jpg",
+    technologies: ["Html", "CSS", "JavaScript", "Parcel"],
+    github: "https://github.com/caiodiasol/ebac_tech_talks",
+    live: "https://ebac-tech-talks-mauve-eight.vercel.app/",
+  },
+  {
+    image: "/disney.jpg",
+    technologies: ["Html", "CSS", "SASS", "Gulp", "JavaScript"],
+    github: "https://github.com/caiodiasol/clone_disneyplus",
+    live: "https://clone-disneyplus-caios-projects-e7ca8e91.vercel.app/",
+  },
+  {
+    image: "/git_dinamico.jpg",
+    technologies: ["Html", "CSS", "JavaScript", "AJAX", "Fetch API"],
+    github: "https://github.com/caiodiasol/ajax_github_profile",
+    live: "https://ajax-github-profile-five.vercel.app/",
+  },
+  {
+    image: "/tic_tac_toe.png",
+    technologies: ["React", "Vite"],
+    github: "https://github.com/caiodiasol/tic_tac_toe",
+    live: "https://tic-tac-toe-kappa-neon.vercel.app/",
+  },
+  {
+    image: "/vb_land.png",
+    technologies: ["Html", "Bootstrap"],
+    github: "https://github.com/caiodiasol/projeto_vitorina_bootstrap",
+    live: "https://projeto-vitorina-bootstrap.vercel.app/",
+  },
+  {
+    image: "/sorteador.jpg",
+    technologies: ["Html", "LESS", "JavaScript", "Grunt"],
+    github: "https://github.com/caiodiasol/grunt_sorteador",
+    live: "https://gruntsorteadorcaio.vercel.app/",
+  },
+  {
+    image: "/lista_tarefa_jquery.jpg",
+    technologies: ["Html", "CSS", "jQuery"],
+    github: "https://github.com/caiodiasol/jQuery_lista_atividades",
+    live: "https://caio-j-query-lista-atividades.vercel.app/",
+  },
+  {
+    image: "/apresentacao.jpg",
+    technologies: ["React", "Next.js"],
+    github: "https://github.com/caiodiasol/Portfolio_Caio_05-25",
+    live: "https://portfoliocaio-sigma.vercel.app/",
+  },
+] as const

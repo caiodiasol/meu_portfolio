@@ -1,8 +1,29 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useLanguage } from "@/lib/i18n/language-provider"
+
+const TECH_LIST = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Bootstrap",
+  "Git",
+  "Node.js",
+  "Vue.js",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "PostgreSQL",
+  "Python",
+  "Django",
+  "Postman",
+  "Docker",
+]
 
 export function About() {
+  const { messages: m } = useLanguage()
+
   return (
     <section id="about" className="py-16 sm:py-20 px-6 sm:px-6">
       <div className="container mx-auto">
@@ -14,21 +35,19 @@ export function About() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center">
-            Sobre <span className="text-gradient">Mim</span>
+            {m.about.title} <span className="text-gradient">{m.about.titleHighlight}</span>
           </h2>
 
           <div className="grid gap-8 sm:gap-12 items-center">
             <div className="space-y-5 sm:space-y-6">
               <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground text-justify sm:text-left">
-                Minha trajetória profissional começou na Administração, área em que me graduei e que me proporcionou experiências valiosas na gestão de negócios e no empreendedorismo. Durante esse período, tive a oportunidade de compreender de perto a dinâmica empresarial, a importância da organização de processos e a visão estratégica necessária para conduzir projetos de forma eficiente. Essas vivências foram fundamentais para moldar minha mentalidade analítica, minha capacidade de resolução de problemas e meu olhar crítico sobre oportunidades de melhoria.
+                {m.about.p1}
               </p>
-
               <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground text-justify sm:text-left">
-                Foi justamente essa curiosidade em investigar e compreender melhor o mundo dos negócios e da inovação que me levou a explorar um novo universo: a tecnologia. O ponto de virada veio em 2021, quando busquei entender mais a fundo como funcionavam o Bitcoin, a blockchain e os smart contracts. Essa busca despertou meu interesse pela programação e abriu caminho para uma transição de carreira, iniciada formalmente em 2022.
+                {m.about.p2}
               </p>
-
               <p className="text-sm leading-relaxed sm:text-base lg:text-lg text-muted-foreground text-justify sm:text-left">
-                Desde a conclusão do curso de Desenvolvedor Full Stack Python no final de 2025, venho me aprofundando no desenvolvimento full stack, unindo minha base analítica e visão de negócios à criação de soluções tecnológicas eficientes e escaláveis. Ao longo desse período, evoluí em linguagens e frameworks como Python, JavaScript, React, Next.js, TypeScript, Django e Docker, sempre com foco em boas práticas de engenharia de software e na integração sólida entre front-end e back-end. Busco atuar em projetos que valorizem qualidade técnica, colaboração e impacto real por meio da tecnologia.
+                {m.about.p3}
               </p>
             </div>
 
@@ -37,25 +56,9 @@ export function About() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <h3 className="text-lg sm:text-xl text-center font-semibold mb-4 text-primary">Tecnologias que utilizo:</h3>
+              <h3 className="text-lg sm:text-xl text-center font-semibold mb-4 text-primary">{m.about.techTitle}</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {[
-                  "HTML",
-                  "CSS",
-                  "JavaScript",
-                  "Bootstrap",
-                  "Git",
-                  "Node.js",
-                  "Vue.js",
-                  "React",
-                  "Next.js",
-                  "TypeScript",
-                  "PostgreSQL",
-                  "Python",
-                  "Django",
-                  "Postman",
-                  "Docker",
-                ].map((tech, index) => (
+                {TECH_LIST.map((tech, index) => (
                   <div key={`${tech}-${index}`} className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     <span className="text-sm">{tech}</span>
