@@ -46,7 +46,7 @@ export function Projects() {
                 {projects.map((project, index) => (
                   <div key={index} className="w-full flex-shrink-0">
                     <motion.div
-                      className="group relative bg-card/80 backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 mx-1 sm:mx-2"
+                      className="group relative bg-card/80 backdrop-blur-sm border-2 border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 mx-1 sm:mx-2"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -119,13 +119,13 @@ export function Projects() {
 
             <button
               onClick={prevProject}
-              className="absolute left-2 sm:left-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full z-30"
+              className="absolute left-2 sm:left-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border-2 border-primary/50 hover:border-primary text-primary p-1 sm:p-1.5 rounded-full z-30 transition-all duration-300"
             >
               <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
             <button
               onClick={nextProject}
-              className="absolute right-2 sm:right-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border border-primary/50 text-primary p-1 sm:p-1.5 rounded-full z-30"
+              className="absolute right-2 sm:right-4 top-[210px] sm:top-[40%] -translate-y-1/2 bg-primary/20 backdrop-blur-md hover:bg-primary/40 border-2 border-primary/50 hover:border-primary text-primary p-1 sm:p-1.5 rounded-full z-30 transition-all duration-300"
             >
               <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>

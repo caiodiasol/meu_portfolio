@@ -75,7 +75,7 @@ export function Contact() {
           </motion.p>
 
           <motion.div
-            className="bg-card/80 backdrop-blur-sm border border-border p-6 sm:p-10 rounded-2xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden"
+            className="bg-card/80 backdrop-blur-sm border-2 border-border p-6 sm:p-10 rounded-2xl hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 overflow-hidden"
             variants={itemVariants}
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
@@ -176,7 +176,7 @@ export function Contact() {
                       required
                       minLength={2}
                       disabled={isSubmitting}
-                      className="bg-muted/30 border-border focus:border-primary h-12"
+                      className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
@@ -187,7 +187,7 @@ export function Contact() {
                       placeholder={m.contact.emailPlaceholder}
                       required
                       disabled={isSubmitting}
-                      className="bg-muted/30 border-border focus:border-primary h-12"
+                      className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
@@ -197,7 +197,7 @@ export function Contact() {
                       name="phone"
                       placeholder={m.contact.phonePlaceholder}
                       disabled={isSubmitting}
-                      className="bg-muted/30 border-border focus:border-primary h-12"
+                      className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
@@ -209,7 +209,7 @@ export function Contact() {
                       minLength={10}
                       rows={4}
                       disabled={isSubmitting}
-                      className="bg-muted/30 border-border focus:border-primary resize-none"
+                      className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary resize-none transition-colors duration-300"
                     />
                   </motion.div>
 

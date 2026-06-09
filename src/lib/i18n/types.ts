@@ -83,6 +83,7 @@ export type Messages = {
   experience: {
     title: string
     achievements: string
+    stack: string
   }
   experienceItems: ExperienceItem[]
   projects: {

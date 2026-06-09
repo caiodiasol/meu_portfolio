@@ -52,7 +52,7 @@ export function About() {
             </div>
 
             <motion.div
-              className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-4 sm:p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+              className="bg-card/80 backdrop-blur-sm border-2 border-border rounded-xl p-4 sm:p-6 hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

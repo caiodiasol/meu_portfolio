@@ -162,6 +162,7 @@ export const messagesEn: Messages = {
   experience: {
     title: "Experience",
     achievements: "Key Achievements:",
+    stack: "Stack",
   },
   experienceItems: [
     {

@@ -150,7 +150,7 @@ export function Skills() {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center p-4 sm:p-6 bg-card/80 backdrop-blur-sm border border-border rounded-xl hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+                className="text-center p-4 sm:p-6 bg-card/80 backdrop-blur-sm border-2 border-border rounded-xl hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                 variants={itemVariants}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
