@@ -295,7 +295,7 @@ export const messagesEn: Messages = {
     email: "Email",
     whatsapp: "WhatsApp",
     location: "Location",
-    locationValue: "Florianópolis - SC",
+    locationValue: "Salvador - BA",
     formSubject: "New message from the portfolio!",
     namePlaceholder: "Your name",
     emailPlaceholder: "Your email",

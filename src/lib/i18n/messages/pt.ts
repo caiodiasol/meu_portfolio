@@ -271,7 +271,7 @@ export const messagesPt: Messages = {
     email: "Email",
     whatsapp: "Whatsapp",
     location: "Localização",
-    locationValue: "Florianópolis - SC",
+    locationValue: "Salvador - BA",
     formSubject: "Nova mensagem do portfólio!",
     namePlaceholder: "Seu nome",
     emailPlaceholder: "Seu email",

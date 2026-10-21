@@ -122,7 +122,7 @@ export function Contact() {
 
                     <motion.div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left gap-4 group" variants={itemVariants}>
                       <a
-                        href="https://wa.me/5573991053176"
+                        href="https://wa.me/5571997275016"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20"
@@ -133,12 +133,12 @@ export function Contact() {
                       <div>
                         <p className="font-medium text-sm sm:text-base mb-0.5">{m.contact.whatsapp}</p>
                         <a
-                          href="https://wa.me/5573991053176"
+                          href="https://wa.me/5571997275016"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
-                          +55 (73) 99105-3176
+                          +55 (71) 99727-5016
                         </a>
                       </div>
                     </motion.div>
