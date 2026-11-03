@@ -124,7 +124,6 @@ export const messagesPt: Messages = {
     p1: "Minha trajetória profissional começou na Administração, área em que me graduei e que me proporcionou experiências valiosas na gestão de negócios e no empreendedorismo. Durante esse período, tive a oportunidade de compreender de perto a dinâmica empresarial, a importância da organização de processos e a visão estratégica necessária para conduzir projetos de forma eficiente. Essas vivências foram fundamentais para moldar minha mentalidade analítica, minha capacidade de resolução de problemas e meu olhar crítico sobre oportunidades de melhoria.",
     p2: "Foi justamente essa curiosidade em investigar e compreender melhor o mundo dos negócios e da inovação que me levou a explorar um novo universo: a tecnologia. O ponto de virada veio em 2021, quando busquei entender mais a fundo como funcionavam o Bitcoin, a blockchain e os smart contracts. Essa busca despertou meu interesse pela programação e abriu caminho para uma transição de carreira, iniciada formalmente em 2022.",
     p3: "Desde a conclusão do curso de Desenvolvedor Full Stack Python no final de 2025, venho me aprofundando no desenvolvimento full stack, unindo minha base analítica e visão de negócios à criação de soluções tecnológicas eficientes e escaláveis. Ao longo desse período, evoluí em linguagens e frameworks como Python, JavaScript, React, Next.js, TypeScript, Django e Docker, sempre com foco em boas práticas de engenharia de software e na integração sólida entre front-end e back-end. Busco atuar em projetos que valorizem qualidade técnica, colaboração e impacto real por meio da tecnologia.",
-    techTitle: "Tecnologias que utilizo:",
   },
   education: {
     title: "Formação",
@@ -166,7 +165,7 @@ export const messagesPt: Messages = {
   },
   experienceItems: [
     {
-      period: "2026 Janeiro – O Momento",
+      period: "2026 Janeiro – Presente",
       role: "Desenvolvedor Full Stack",
       company: "NewSun Energy Group",
       location: "Remoto",

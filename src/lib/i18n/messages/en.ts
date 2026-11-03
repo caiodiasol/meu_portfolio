@@ -124,7 +124,6 @@ export const messagesEn: Messages = {
     p1: "My professional journey began in Business Administration, where I earned my degree and gained valuable experience in business management and entrepreneurship. During that time, I developed a close understanding of how companies operate, the importance of process organization, and the strategic vision needed to run projects efficiently. Those experiences shaped my analytical mindset, problem-solving skills, and critical eye for improvement opportunities.",
     p2: "That curiosity to investigate and better understand business and innovation led me to explore a new field: technology. The turning point came in 2021, when I sought to understand how Bitcoin, blockchain, and smart contracts work. That path sparked my interest in programming and opened the door to a career transition that formally began in 2022.",
     p3: "Since completing the Python Full Stack Developer program in late 2025, I have been deepening my full stack development skills, combining my analytical background and business perspective with building efficient, scalable technology solutions. Along the way, I have grown in languages and frameworks such as Python, JavaScript, React, Next.js, TypeScript, Django, and Docker, always focusing on software engineering best practices and solid front-end and back-end integration. I aim to work on projects that value technical quality, collaboration, and real impact through technology.",
-    techTitle: "Technologies I use:",
   },
   education: {
     title: "Academic",

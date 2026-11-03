@@ -132,16 +132,16 @@ export function Hero() {
                   <span className="text-green-400">skills</span>: [
                 </div>
                 <div className="ml-8">
-                  <span className="text-orange-400">&apos;React&apos;</span>, <span className="text-orange-400">&apos;Next.js&apos;</span>,{" "}
-                  <span className="text-orange-400">&apos;TypeScript&apos;</span>,
+                  <span className="text-orange-400">&apos;TypeScript&apos;</span>, <span className="text-orange-400">&apos;React&apos;</span>,{" "}
+                  <span className="text-orange-400">&apos;Next.js&apos;</span>,
                 </div>
                 <div className="ml-8">
-                  <span className="text-orange-400">&apos;Docker&apos;</span>, <span className="text-orange-400">&apos;Python&apos;</span>,{" "}
-                  <span className="text-orange-400">&apos;JavaScript&apos;</span>,{" "}
+                  <span className="text-orange-400">&apos;Node.js&apos;</span>, <span className="text-orange-400">&apos;Fastify&apos;</span>,{" "}
+                  <span className="text-orange-400">&apos;Prisma&apos;</span>,
                 </div>
                 <div className="ml-8">
-                  <span className="text-orange-400">&apos;Node.js&apos;</span>, <span className="text-orange-400">&apos;PostgreSQL&apos;</span>,{" "}
-                  <span className="text-orange-400">&apos;Git&apos;</span>{" "}
+                  <span className="text-orange-400">&apos;PostgreSQL&apos;</span>, <span className="text-orange-400">&apos;Docker&apos;</span>,{" "}
+                  <span className="text-orange-400">&apos;Python&apos;</span>
                 </div>
                 <div className="ml-4">],</div>
                 <div className="ml-4 flex flex-col xl:flex-row xl:items-start gap-1 xl:gap-2">
