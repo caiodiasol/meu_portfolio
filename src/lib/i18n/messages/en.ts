@@ -219,6 +219,9 @@ export const messagesEn: Messages = {
     titleHighlight: "Projects",
     code: "Code",
     viewProject: "View Project",
+    featuredLabel: "Featured",
+    moreProjects: "More projects",
+    codeOnly: "Code only",
   },
   projectItems: mergeProjects(projectContent),
   skills: {

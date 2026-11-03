@@ -7,6 +7,7 @@ export type ProjectItem = {
   technologies: string[]
   github: string
   live: string | null
+  featured: boolean
 }
 
 export type EducationItem = {
@@ -90,6 +91,9 @@ export type Messages = {
     titleHighlight: string
     code: string
     viewProject: string
+    featuredLabel: string
+    moreProjects: string
+    codeOnly: string
   }
   projectItems: ProjectItem[]
   skills: {

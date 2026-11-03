@@ -8,6 +8,7 @@ export function mergeProjects(
     image: base.image,
     github: base.github,
     live: base.live,
+    featured: base.featured,
     technologies: [...base.technologies],
     title: content[index]?.title ?? "",
     description: content[index]?.description ?? "",
