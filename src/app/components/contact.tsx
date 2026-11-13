@@ -4,18 +4,22 @@ import { motion, Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, MapPin, Phone, CheckCircle, Loader2 } from "lucide-react"
+import { Mail, MapPin, Phone, CheckCircle, Loader2, AlertCircle } from "lucide-react"
 import { useState } from "react"
 import { useLanguage } from "@/lib/i18n/language-provider"
+import { siteConfig } from "@/lib/site"
 
 export function Contact() {
   const { messages: m } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setShowSuccess(false)
+    setShowError(false)
 
     const form = e.currentTarget
     const formData = new FormData(form)
@@ -31,9 +35,14 @@ export function Contact() {
         setShowSuccess(true)
         form.reset()
         setTimeout(() => setShowSuccess(false), 5000)
+      } else {
+        setShowError(true)
+        setTimeout(() => setShowError(false), 6000)
       }
     } catch (error) {
       console.error("Erro ao enviar:", error)
+      setShowError(true)
+      setTimeout(() => setShowError(false), 6000)
     } finally {
       setIsSubmitting(false)
     }
@@ -96,6 +105,22 @@ export function Contact() {
               </motion.div>
             )}
 
+            {showError && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-8 p-4 sm:p-6 bg-red-500/10 border-2 border-red-500/30 rounded-lg"
+              >
+                <div className="flex items-center gap-3 text-red-600 dark:text-red-400">
+                  <AlertCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-base sm:text-lg">{m.contact.errorTitle}</p>
+                    <p className="text-xs sm:text-sm text-red-600/80 dark:text-red-400/80">{m.contact.errorMessage}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
             <div className="grid lg:grid-cols-2 gap-10 sm:gap-16">
               <motion.div className="space-y-8" variants={itemVariants}>
                 <div>
@@ -103,7 +128,7 @@ export function Contact() {
                   <div className="space-y-6">
                     <motion.div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left gap-4 group" variants={itemVariants}>
                       <a
-                        href="mailto:caiodiasol@proton.me"
+                        href={`mailto:${siteConfig.email}`}
                         className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20"
                         title={m.contact.emailTitle}
                       >
@@ -112,17 +137,17 @@ export function Contact() {
                       <div className="min-w-0">
                         <p className="font-medium text-sm sm:text-base mb-0.5">{m.contact.email}</p>
                         <a
-                          href="mailto:caiodiasol@proton.me"
+                          href={`mailto:${siteConfig.email}`}
                           className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                         >
-                          caiodiasol@proton.me
+                          {siteConfig.email}
                         </a>
                       </div>
                     </motion.div>
 
                     <motion.div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left gap-4 group" variants={itemVariants}>
                       <a
-                        href="https://wa.me/5571997275016"
+                        href={siteConfig.whatsappUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20"
@@ -133,12 +158,12 @@ export function Contact() {
                       <div>
                         <p className="font-medium text-sm sm:text-base mb-0.5">{m.contact.whatsapp}</p>
                         <a
-                          href="https://wa.me/5571997275016"
+                          href={siteConfig.whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
-                          +55 (71) 99727-5016
+                          {siteConfig.phoneDisplay}
                         </a>
                       </div>
                     </motion.div>
@@ -158,7 +183,7 @@ export function Contact() {
 
               <motion.div variants={itemVariants}>
                 <form
-                  action="https://formsubmit.co/caiodiasol@proton.me"
+                  action={`https://formsubmit.co/${siteConfig.email}`}
                   method="POST"
                   className="space-y-4"
                   onSubmit={handleSubmit}

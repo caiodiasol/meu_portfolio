@@ -60,11 +60,14 @@ export type Messages = {
     bio: string
     viewProjects: string
     contact: string
+    whatsapp: string
+    availability: string
     goToAbout: string
     profileAlt: string
     githubAria: string
     linkedinAria: string
     emailAria: string
+    whatsappAria: string
     codePassion: string
   }
   about: {
@@ -129,7 +132,13 @@ export type Messages = {
     sending: string
     successTitle: string
     successMessage: string
+    errorTitle: string
+    errorMessage: string
     emailTitle: string
     whatsappTitle: string
+  }
+  footer: {
+    rights: string
+    builtWith: string
   }
 }

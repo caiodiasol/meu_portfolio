@@ -111,11 +111,14 @@ export const messagesEn: Messages = {
     bio: "I believe technology only matters when it solves real problems. Looking for smarter ways to optimize processes and simplify challenges led me to software development as a way to turn ideas into concrete solutions. Today I build systems, automations, and platforms that combine technology, business, and user experience—with a focus on useful, intuitive products built to evolve. What motivates me most is creating real impact and making life easier for people on the other side of the screen.",
     viewProjects: "View Projects",
     contact: "Get in Touch",
+    whatsapp: "WhatsApp",
+    availability: "Open to opportunities",
     goToAbout: "Go to About section",
     profileAlt: "Caio Dias - Profile Photo",
     githubAria: "My GitHub profile",
     linkedinAria: "My LinkedIn profile",
     emailAria: "Send me an email",
+    whatsappAria: "Chat on WhatsApp",
     codePassion: "Building user-centered solutions",
   },
   about: {
@@ -306,7 +309,13 @@ export const messagesEn: Messages = {
     sending: "Sending...",
     successTitle: "Message sent successfully!",
     successMessage: "Thank you for reaching out! I will get back to you soon.",
+    errorTitle: "Could not send the message",
+    errorMessage: "Please try again in a moment or reach me on WhatsApp.",
     emailTitle: "Send email",
     whatsappTitle: "Send WhatsApp message",
+  },
+  footer: {
+    rights: "All rights reserved.",
+    builtWith: "Built with Next.js and TypeScript",
   },
 }

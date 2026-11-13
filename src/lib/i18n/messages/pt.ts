@@ -111,11 +111,14 @@ export const messagesPt: Messages = {
     bio: "Acredito que tecnologia só faz sentido quando resolve problemas reais. Foi buscando formas mais inteligentes de otimizar processos e simplificar desafios que encontrei no desenvolvimento de software uma ferramenta para transformar ideias em soluções concretas. Hoje, desenvolvo sistemas, automações e plataformas que unem tecnologia, negócios e experiência do usuário, sempre com foco em criar produtos úteis, intuitivos e preparados para evoluir. No fim das contas, o que mais me motiva é gerar impacto real e facilitar a vida de quem está do outro lado da tela.",
     viewProjects: "Ver Projetos",
     contact: "Entrar em Contato",
+    whatsapp: "WhatsApp",
+    availability: "Aberto a oportunidades",
     goToAbout: "Ir para a seção Sobre",
     profileAlt: "Caio Dias - Foto de Perfil",
     githubAria: "Meu Perfil no Github",
     linkedinAria: "Meu Perfil no LinkedIn",
     emailAria: "Enviar um e-mail para mim",
+    whatsappAria: "Conversar no WhatsApp",
     codePassion: "Implementar soluções centradas na experiência do usuário",
   },
   about: {
@@ -282,7 +285,13 @@ export const messagesPt: Messages = {
     sending: "Enviando...",
     successTitle: "Mensagem enviada com sucesso! ✨",
     successMessage: "Obrigado pelo contato! Responderei em breve.",
+    errorTitle: "Não foi possível enviar a mensagem",
+    errorMessage: "Tente novamente em instantes ou fale comigo pelo WhatsApp.",
     emailTitle: "Enviar email",
     whatsappTitle: "Enviar WhatsApp",
+  },
+  footer: {
+    rights: "Todos os direitos reservados.",
+    builtWith: "Desenvolvido com Next.js e TypeScript",
   },
 }

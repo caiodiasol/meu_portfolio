@@ -20,6 +20,8 @@ export const siteConfig = {
   ],
   ogImage: "/perfil.jpg",
   email: "caiodiasol@proton.me",
+  phoneDisplay: "+55 (71) 99727-5016",
+  whatsappUrl: "https://wa.me/5571997275016",
   github: "https://github.com/caiodiasol",
   linkedin: "https://www.linkedin.com/in/caiodiasol/",
   locale: "pt_BR",

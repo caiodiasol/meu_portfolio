@@ -4,8 +4,9 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ExternalLink } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, Phone } from "lucide-react"
 import { useLanguage } from "@/lib/i18n/language-provider"
+import { siteConfig } from "@/lib/site"
 
 export function Hero() {
   const { messages: m } = useLanguage()
@@ -51,6 +52,15 @@ export function Hero() {
                   <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-balance">Caio Dias</h1>
                 </button>
                 <h2 className="text-lg sm:text-xl lg:text-2xl text-primary font-medium">{m.hero.role}</h2>
+                <div className="mt-3 flex justify-center sm:justify-start">
+                  <span className="inline-flex items-center gap-2 rounded-md border-2 border-primary/40 bg-primary/10 px-3 py-1 text-xs sm:text-sm font-medium text-primary">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                    </span>
+                    {m.hero.availability}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -73,11 +83,27 @@ export function Hero() {
               >
                 {m.hero.contact}
               </Button>
+              <Button
+                variant="outline"
+                asChild
+                className="w-full sm:w-auto border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={m.hero.whatsappAria}
+                  className="inline-flex items-center justify-center gap-1.5"
+                >
+                  <Phone className="h-4 w-4 shrink-0" />
+                  {m.hero.whatsapp}
+                </a>
+              </Button>
             </div>
 
             <div className="flex gap-6 pt-4 justify-center sm:justify-start">
               <a
-                href="https://github.com/caiodiasol"
+                href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={m.hero.githubAria}
@@ -86,7 +112,7 @@ export function Hero() {
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://www.linkedin.com/in/caiodiasol/"
+                href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={m.hero.linkedinAria}
@@ -95,7 +121,7 @@ export function Hero() {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
-                href="mailto:caiodiasol@proton.me"
+                href={`mailto:${siteConfig.email}`}
                 aria-label={m.hero.emailAria}
                 className="inline-flex text-muted-foreground hover:text-primary"
               >
