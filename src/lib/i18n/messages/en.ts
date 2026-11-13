@@ -170,15 +170,14 @@ export const messagesEn: Messages = {
       company: "NewSun Energy Group",
       location: "Remote",
       description:
-        "I work as a Full Stack Developer at NewSun Energy Group, focusing on internal solutions for corporate systems. My work spans designing scalable REST APIs on the backend to seamless front-end integration, always prioritizing code organization, performance, and business value.",
-      technologies: ["Node.js", "TypeScript", "Fastify", "Prisma", "PostgreSQL", "Redis", "Docker", "PNPM"],
+        "At NewSun Energy Group, I work full stack on the development and evolution of products for the renewable energy sector. That includes the corporate ERP, websites, and environments such as Energy Club, which support operations, customer relationships, and commercial flows. On the frontend, I improve React interfaces and API integration, using React Query for dynamic data. On the backend, I build and evolve REST APIs with Node.js, Fastify, and TypeScript, covering business rules, PostgreSQL persistence, and end-to-end delivery quality.",
+      technologies: ["TypeScript", "React", "React Query", "Node.js", "Fastify", "Zod", "Prisma", "PostgreSQL", "Redis", "Docker", "PNPM"],
       achievements: [
-        "Built scalable REST APIs with Node.js, Fastify, and TypeScript, implementing complex business rules and paginated endpoints.",
-        "Modeled data and managed PostgreSQL migrations with Prisma ORM, ensuring integrity and performance.",
-        "Integrated Redis for caching and performance optimization in high-demand corporate systems.",
-        "Standardized development environments using Docker and Docker Compose in a PNPM monorepo infrastructure.",
-        "Implemented critical auxiliary systems such as audit logs and actionable notifications.",
-        "Actively contributed to technical refinements, debugging, and team support, plus code reviews and continuous integration practices.",
+        "On the frontend, API integration, UX/UI adjustments, dynamic data with React and React Query, and end-to-end flow checks together with the backend.",
+        "On the backend, REST APIs with Node.js, Fastify, and TypeScript, including business rules, paginated endpoints, transactional actions, audit logs, and actionable notifications.",
+        "Data modeling and migrations in PostgreSQL with Prisma, validation with Zod, and Redis for caching and performance.",
+        "PNPM monorepo, with Docker and Docker Compose to standardize the development environment, plus Git, pull requests, code review, and CI/CD.",
+        "Work tracked in Jira, including sprint planning, daily meetings, and technical refinements, along with debugging, integrations, and support for other developers on the team.",
       ],
     },
     {

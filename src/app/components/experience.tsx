@@ -100,7 +100,7 @@ export function Experience() {
                         </div>
                       </div>
 
-                      <p className="text-xs leading-relaxed sm:text-sm lg:text-base text-muted-foreground text-justify sm:text-left mb-4 sm:mb-6">{exp.description}</p>
+                      <p className="text-xs leading-relaxed sm:text-sm lg:text-base text-muted-foreground text-justify sm:text-left mb-4 sm:mb-6 whitespace-pre-line">{exp.description}</p>
 
                       <div className="mb-4 sm:mb-6 rounded-lg border border-border/60 bg-background/40 overflow-hidden">
                         <div className="flex items-center gap-2 px-3 sm:px-4 py-2.5 border-b border-border/60 bg-muted/30">

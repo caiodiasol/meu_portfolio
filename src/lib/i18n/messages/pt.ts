@@ -170,15 +170,14 @@ export const messagesPt: Messages = {
       company: "NewSun Energy Group",
       location: "Remoto",
       description:
-        "Atuo como Desenvolvedor Full Stack na NewSun Energy Group, focando no desenvolvimento de soluções internas para sistemas corporativos. Minha atuação abrange desde a concepção de APIs REST escaláveis no backend até a integração fluida com o frontend, priorizando sempre a organização de código, performance e a entrega de valor ao negócio.",
-      technologies: ["Node.js", "TypeScript", "Fastify", "Prisma", "PostgreSQL", "Redis", "Docker", "PNPM"],
+        "Na NewSun Energy Group, atuo de forma full stack no desenvolvimento e evolução de produtos para o setor de energia renovável. Isso inclui o ERP corporativo, sites e ambientes como o Energy Club, que apoiam operação, relacionamento com clientes e fluxos comerciais. No frontend, aprimoro interfaces em React e a integração com as APIs, utilizando React Query para consumo dinâmico de dados. No backend, desenvolvo e evoluo APIs REST com Node.js, Fastify e TypeScript, cobrindo regras de negócio, persistência em PostgreSQL e qualidade de entrega ponta a ponta.",
+      technologies: ["TypeScript", "React", "React Query", "Node.js", "Fastify", "Zod", "Prisma", "PostgreSQL", "Redis", "Docker", "PNPM"],
       achievements: [
-        "Desenvolvimento de APIs REST escaláveis utilizando Node.js, Fastify e TypeScript, com implementação de regras de negócio complexas e endpoints paginados.",
-        "Modelagem de dados e gerenciamento de migrations em PostgreSQL utilizando Prisma ORM, garantindo integridade e performance.",
-        "Integração do Redis para cache e otimização de performance em sistemas corporativos de alta demanda.",
-        "Padronização de ambientes de desenvolvimento através do uso de Docker e Docker Compose em infraestrutura monorepo com PNPM.",
-        "Implementação de sistemas auxiliares críticos, como logs de auditoria e notificações acionáveis.",
-        "Colaboração ativa em refinamentos técnicos, debugging e suporte ao time, além de revisões de código e práticas de integração contínua.",
+        "No frontend, integração das APIs, ajustes de UX/UI, consumo de dados dinâmicos com React e React Query, e validação dos fluxos completos junto ao backend.",
+        "No backend, APIs REST com Node.js, Fastify e TypeScript, com regras de negócio, endpoints paginados, ações transacionais, logs de auditoria e notificações acionáveis.",
+        "Modelagem e migrations em PostgreSQL com Prisma, validação com Zod e Redis para cache e performance.",
+        "Ambiente em monorepo com PNPM, Docker e Docker Compose para padronizar o desenvolvimento, além de Git, Pull Requests, code review e CI/CD.",
+        "Gestão das atividades no Jira, com planejamento de sprint, daily e refinamentos técnicos, além de debugging, integrações e suporte aos outros desenvolvedores do time.",
       ],
     },
     {
