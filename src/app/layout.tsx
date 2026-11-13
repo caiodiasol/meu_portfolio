@@ -1,31 +1,103 @@
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import { ScrollProgress } from "./components/scroll-progress";
+import type { Metadata } from "next"
+import { Inter, JetBrains_Mono } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
+import "./globals.css"
+import { ScrollProgress } from "./components/scroll-progress"
+import { getSiteUrl, siteConfig } from "@/lib/site"
 
 const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+})
 
 const geistMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+})
+
+const siteUrl = getSiteUrl()
 
 export const metadata: Metadata = {
-  title: "Caio Dias - Desenvolvedor Full Stack",
-  description: "Portfólio de Caio Dias - Desenvolvedor Full Stack especializado em React, Next.js, Python e Django. Crio soluções digitais escaláveis e centradas na experiência do usuário.",
-};
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteUrl }],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    alternateLocale: [siteConfig.localeAlternate],
+    url: siteUrl,
+    siteName: siteConfig.title,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 800,
+        height: 800,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: siteConfig.title,
+      url: siteUrl,
+      description: siteConfig.description,
+      inLanguage: ["pt-BR", "en"],
+      author: {
+        "@type": "Person",
+        name: siteConfig.name,
+      },
+    },
+    {
+      "@type": "Person",
+      name: siteConfig.name,
+      url: siteUrl,
+      image: `${siteUrl}${siteConfig.ogImage}`,
+      email: siteConfig.email,
+      jobTitle: "Full Stack Developer",
+      sameAs: [siteConfig.github, siteConfig.linkedin],
+      knowsAbout: ["React", "Next.js", "TypeScript", "Node.js", "Python", "PostgreSQL"],
+    },
+  ],
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -38,7 +110,6 @@ export default function RootLayout({
                     document.documentElement.classList.remove("light");
                   }
                 } catch (e) {
-                  // Se não conseguir acessar localStorage, mantém o tema dark padrão
                   document.documentElement.classList.remove("light");
                 }
               })();
@@ -47,7 +118,8 @@ export default function RootLayout({
         />
         <ScrollProgress />
         {children}
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }
