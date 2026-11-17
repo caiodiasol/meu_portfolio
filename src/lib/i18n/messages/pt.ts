@@ -293,5 +293,6 @@ export const messagesPt: Messages = {
   footer: {
     rights: "Todos os direitos reservados.",
     builtWith: "Desenvolvido com Next.js e TypeScript",
+    contact: "Contato",
   },
 }

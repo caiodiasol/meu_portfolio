@@ -140,5 +140,6 @@ export type Messages = {
   footer: {
     rights: string
     builtWith: string
+    contact: string
   }
 }

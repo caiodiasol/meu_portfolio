@@ -317,5 +317,6 @@ export const messagesEn: Messages = {
   footer: {
     rights: "All rights reserved.",
     builtWith: "Built with Next.js and TypeScript",
+    contact: "Contact",
   },
 }
