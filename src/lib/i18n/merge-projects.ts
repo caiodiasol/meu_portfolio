@@ -9,7 +9,9 @@ export function mergeProjects(
     github: base.github,
     live: base.live,
     featured: base.featured,
+    categories: [...base.categories],
     technologies: [...base.technologies],
+    complexity: "complexity" in base ? (base.complexity as number) : 0,
     title: content[index]?.title ?? "",
     description: content[index]?.description ?? "",
   }))

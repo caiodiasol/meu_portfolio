@@ -23,6 +23,11 @@ const projectContent = [
       "Intelligent diet generator project with a Node.js backend integrated with a Next.js frontend. Uses an OpenAI agent with structured knowledge in the prompt to generate personalized meal plans and connect to an API for dynamic delivery of results.",
   },
   {
+    title: "Twitter Clone",
+    description:
+      "Final project for EBAC's Python Full Stack Developer course: a social network with JWT authentication, profiles, tweets, followers, and a personalized feed. Backend with Django REST Framework, PostgreSQL, and Docker; frontend with React, TypeScript, and Tailwind CSS, deployed on Render and Vercel, with media on Cloudinary and CI/CD via GitHub Actions.",
+  },
+  {
     title: "Efood",
     description:
       "Final project for the Front-End module in EBAC's Python Full Stack Developer course. The app simulates an online ordering platform with full features including restaurant listings, individual pages, a shopping cart, and checkout flow with payment simulation, all connected to a backend via API.",
@@ -224,6 +229,18 @@ export const messagesEn: Messages = {
     featuredLabel: "Featured",
     moreProjects: "More projects",
     codeOnly: "Code only",
+    filters: {
+      featured: "Featured",
+      fullstack: "Full Stack",
+      frontend: "Frontend",
+      backend: "Backend",
+    },
+    empty: "No projects in this category.",
+    pagination: {
+      prev: "Previous page",
+      next: "Next page",
+      page: "Page",
+    },
   },
   projectItems: mergeProjects(projectContent),
   skills: {

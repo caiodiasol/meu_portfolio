@@ -1,3 +1,5 @@
+export type ProjectCategory = "fullstack" | "frontend" | "backend"
+
 export const projectsBase = [
   {
     image: "/tarot.png",
@@ -5,6 +7,8 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/tarot_landpage",
     live: "https://www.tarotraissa.com.br/",
     featured: true,
+    categories: ["fullstack"] as const,
+    complexity: 70,
   },
   {
     image: "/dashboard_gdash.png",
@@ -12,6 +16,8 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/desafio-gdash-2025-02/tree/caio-dias-oliveira",
     live: null,
     featured: true,
+    categories: ["fullstack"] as const,
+    complexity: 100,
   },
   {
     image: "/newsun_energy.png",
@@ -19,6 +25,8 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/desafio-dev-fullstack",
     live: null,
     featured: true,
+    categories: ["fullstack"] as const,
+    complexity: 85,
   },
   {
     image: "/dietaopenai.png",
@@ -26,6 +34,17 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/gerador_dieta_openai_frontend",
     live: "https://dietaai-rho.vercel.app/",
     featured: true,
+    categories: ["fullstack"] as const,
+    complexity: 55,
+  },
+  {
+    image: "/twitter_clone.png",
+    technologies: ["Python", "Django", "Django REST Framework", "JWT", "PostgreSQL", "Docker", "Poetry", "React", "TypeScript", "Tailwind CSS", "Axios", "React Router", "Cloudinary", "GitHub Actions", "pytest"],
+    github: "https://github.com/caiodiasol/twitter",
+    live: "https://twitter-sage-two.vercel.app/",
+    featured: true,
+    categories: ["fullstack", "backend"] as const,
+    complexity: 90,
   },
   {
     image: "/efood_print.png",
@@ -33,6 +52,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/efood",
     live: "https://efood-jet-omega.vercel.app/",
     featured: true,
+    categories: ["frontend"] as const,
   },
   {
     image: "/eplay.jpg",
@@ -40,6 +60,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/eplay",
     live: "https://eplay-woad.vercel.app/",
     featured: true,
+    categories: ["frontend"] as const,
   },
   {
     image: "/agenda_contatos.jpg",
@@ -47,6 +68,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/cypress_teste_agenda_ebac",
     live: "https://agenda-contatos-react.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/festival.jpg",
@@ -54,6 +76,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/caio_festival",
     live: "https://caio-festival.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/ebac_tech.jpg",
@@ -61,6 +84,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/ebac_tech_talks",
     live: "https://ebac-tech-talks-mauve-eight.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/disney.jpg",
@@ -68,6 +92,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/clone_disneyplus",
     live: "https://clone-disneyplus-caios-projects-e7ca8e91.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/git_dinamico.jpg",
@@ -75,6 +100,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/ajax_github_profile",
     live: "https://ajax-github-profile-five.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/tic_tac_toe.png",
@@ -82,6 +108,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/tic_tac_toe",
     live: "https://tic-tac-toe-kappa-neon.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/vb_land.png",
@@ -89,6 +116,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/projeto_vitorina_bootstrap",
     live: "https://projeto-vitorina-bootstrap.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/sorteador.jpg",
@@ -96,6 +124,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/grunt_sorteador",
     live: "https://gruntsorteadorcaio.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/lista_tarefa_jquery.jpg",
@@ -103,6 +132,7 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/jQuery_lista_atividades",
     live: "https://caio-j-query-lista-atividades.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
   {
     image: "/apresentacao.jpg",
@@ -110,5 +140,6 @@ export const projectsBase = [
     github: "https://github.com/caiodiasol/Portfolio_Caio_05-25",
     live: "https://portfoliocaio-sigma.vercel.app/",
     featured: false,
+    categories: ["frontend"] as const,
   },
-] as const
+]

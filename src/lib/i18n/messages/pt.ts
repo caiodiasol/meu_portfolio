@@ -23,6 +23,11 @@ const projectContent = [
       "Projeto de um Gerador de Dietas Inteligente, com backend com Node.js integrado ao frontend com Next.js. Utiliza um agente da OpenAI, com base de conhecimento estruturada dentro do prompt, para gerar planos alimentares personalizados e conectar-se a uma API para entrega dinâmica dos resultados.",
   },
   {
+    title: "Clone do Twitter",
+    description:
+      "Projeto final do curso Desenvolvedor Fullstack Python da EBAC: uma rede social com autenticação JWT, perfis, tweets, seguidores e feed personalizado. Backend em Django REST Framework com PostgreSQL e Docker; frontend em React, TypeScript e Tailwind CSS, com deploy na Render e na Vercel, mídia na Cloudinary e CI/CD via GitHub Actions.",
+  },
+  {
     title: "Efood",
     description:
       "Este é o meu projeto final do módulo de Front-End no curso de Desenvolvedor Full-Stack Python da EBAC. A aplicação simula uma plataforma de pedidos online, com funcionalidades completas como listagem de restaurantes, páginas individuais, carrinho de compras e fluxo de finalização com simulação de pagamento, tudo conectado a um backend via API.",
@@ -224,6 +229,18 @@ export const messagesPt: Messages = {
     featuredLabel: "Em destaque",
     moreProjects: "Mais projetos",
     codeOnly: "Código apenas",
+    filters: {
+      featured: "Destaques",
+      fullstack: "Full Stack",
+      frontend: "Frontend",
+      backend: "Backend",
+    },
+    empty: "Nenhum projeto nesta categoria.",
+    pagination: {
+      prev: "Página anterior",
+      next: "Próxima página",
+      page: "Página",
+    },
   },
   projectItems: mergeProjects(projectContent),
   skills: {

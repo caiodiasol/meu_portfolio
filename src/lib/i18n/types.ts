@@ -1,5 +1,9 @@
 export type Locale = "pt" | "en"
 
+export type ProjectCategory = "fullstack" | "frontend" | "backend"
+
+export type ProjectFilter = "featured" | ProjectCategory
+
 export type ProjectItem = {
   title: string
   description: string
@@ -8,6 +12,8 @@ export type ProjectItem = {
   github: string
   live: string | null
   featured: boolean
+  categories: ProjectCategory[]
+  complexity: number
 }
 
 export type EducationItem = {
@@ -97,6 +103,18 @@ export type Messages = {
     featuredLabel: string
     moreProjects: string
     codeOnly: string
+    filters: {
+      featured: string
+      fullstack: string
+      frontend: string
+      backend: string
+    }
+    empty: string
+    pagination: {
+      prev: string
+      next: string
+      page: string
+    }
   }
   projectItems: ProjectItem[]
   skills: {
