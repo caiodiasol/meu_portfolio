@@ -144,6 +144,43 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
+@keyframes featured-badge-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 45%, transparent);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 14px 2px color-mix(in oklab, var(--primary) 55%, transparent);
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes cta-soft-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 18px 2px color-mix(in oklab, var(--primary) 50%, transparent);
+  }
+}
+
+.animate-featured-badge {
+  animation: featured-badge-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-cta-soft-pulse {
+  animation: cta-soft-pulse 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-featured-badge,
+  .animate-cta-soft-pulse {
+    animation: none;
+  }
+}
+
 /* Efeito de hover para links */
 .link-hover {
   position: relative;

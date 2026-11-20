@@ -25,7 +25,7 @@ function ProjectCard({
   labels,
 }: {
   project: ProjectItem
-  labels: { code: string; viewProject: string; codeOnly: string; featuredLabel: string }
+  labels: { code: string; viewProject: string; featuredLabel: string }
 }) {
   return (
     <motion.div
@@ -44,7 +44,11 @@ function ProjectCard({
           className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
         />
         {project.featured && (
-          <span className="absolute top-3 left-3 z-10 rounded-md border border-primary/80 bg-primary px-2.5 py-1 text-[10px] font-semibold font-mono uppercase tracking-wider text-primary-foreground shadow-md shadow-black/40">
+          <span className="animate-featured-badge absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-md border border-primary/70 bg-primary/95 px-2.5 py-1 text-[10px] font-semibold font-mono uppercase tracking-wider text-primary-foreground backdrop-blur-sm">
+            <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground/80 opacity-70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-foreground" />
+            </span>
             {labels.featuredLabel}
           </span>
         )}
@@ -84,17 +88,17 @@ function ProjectCard({
               {labels.code}
             </a>
           </Button>
-          {project.live ? (
-            <Button size="sm" className="h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground hover:bg-accent" asChild>
+          {project.live && (
+            <Button
+              size="sm"
+              className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground hover:bg-accent hover:animate-none"
+              asChild
+            >
               <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
                 <ExternalLink className="h-3 w-3 shrink-0" />
                 {labels.viewProject}
               </a>
             </Button>
-          ) : (
-            <span className="inline-flex items-center h-8 px-2 text-[10px] sm:text-xs font-mono text-muted-foreground border border-border rounded-md">
-              {labels.codeOnly}
-            </span>
           )}
         </div>
       </div>
@@ -132,7 +136,6 @@ export function Projects() {
   const labels = {
     code: m.projects.code,
     viewProject: m.projects.viewProject,
-    codeOnly: m.projects.codeOnly,
     featuredLabel: m.projects.featuredLabel,
   }
 
