@@ -27,6 +27,12 @@ function ProjectCard({
   project: ProjectItem
   labels: { code: string; viewProject: string; featuredLabel: string }
 }) {
+  const primaryHref = project.live ?? project.github
+
+  const openPrimaryLink = () => {
+    window.open(primaryHref, "_blank", "noopener,noreferrer")
+  }
+
   return (
     <motion.div
       layout
@@ -34,7 +40,17 @@ function ProjectCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.25 }}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border-2 border-border bg-card/80 backdrop-blur-sm hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+      role="link"
+      tabIndex={0}
+      aria-label={project.title}
+      onClick={openPrimaryLink}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault()
+          openPrimaryLink()
+        }
+      }}
+      className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-xl border-2 border-border bg-card/80 backdrop-blur-sm hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       whileHover={{ y: -2 }}
     >
       <div className="relative h-40 sm:h-44 bg-muted/20 flex items-center justify-center p-3">
@@ -76,14 +92,20 @@ function ProjectCard({
           )}
         </div>
 
-        <div className="mt-auto flex flex-wrap gap-2 pt-1">
+        <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-1">
           <Button
             variant="outline"
             size="sm"
             className="h-8 text-[10px] sm:text-xs border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
             asChild
           >
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5"
+              onClick={(event) => event.stopPropagation()}
+            >
               <Github className="h-3 w-3 shrink-0" />
               {labels.code}
             </a>
@@ -94,7 +116,13 @@ function ProjectCard({
               className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground hover:bg-accent hover:animate-none"
               asChild
             >
-              <a href={project.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5"
+                onClick={(event) => event.stopPropagation()}
+              >
                 <ExternalLink className="h-3 w-3 shrink-0" />
                 {labels.viewProject}
               </a>
