@@ -53,10 +53,10 @@ export function Hero() {
                 </button>
                 <h2 className="text-lg sm:text-xl lg:text-2xl text-primary font-medium">{m.hero.role}</h2>
                 <div className="mt-3 flex justify-center sm:justify-start">
-                  <span className="inline-flex items-center gap-2 rounded-md border-2 border-primary/40 bg-primary/10 px-3 py-1 text-xs sm:text-sm font-medium text-primary">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  <span className="animate-featured-badge inline-flex items-center gap-2 rounded-full border border-primary/70 bg-primary/95 px-3.5 py-1 text-xs sm:text-sm font-semibold text-primary-foreground backdrop-blur-sm">
+                    <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden>
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground/80 opacity-70" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-foreground" />
                     </span>
                     {m.hero.availability}
                   </span>

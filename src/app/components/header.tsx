@@ -167,7 +167,7 @@ export function Header() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-primary"
+            className="lg:hidden inline-flex size-9 items-center justify-center rounded-full text-foreground hover:text-primary hover:bg-primary/10 transition-colors"
             aria-label={isMobileMenuOpen ? m.header.closeMenu : m.header.openMenu}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -186,7 +186,7 @@ export function Header() {
               <div className="flex justify-end">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 hover:bg-primary/10 rounded-lg"
+                  className="inline-flex size-9 items-center justify-center rounded-full hover:bg-primary/10"
                   aria-label={m.header.closeMenu}
                 >
                   <X className="h-5 w-5 text-foreground" />

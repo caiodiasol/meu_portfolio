@@ -86,7 +86,7 @@ export function Skills() {
                     {category.skills.map((skill, skillIndex) => (
                       <div
                         key={skillIndex}
-                        className="bg-muted/60 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-foreground/80 hover:bg-muted transition-colors duration-200"
+                        className="bg-muted/60 rounded-full px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-center text-foreground/80 hover:bg-muted transition-colors duration-200"
                       >
                         {skill}
                       </div>
@@ -129,7 +129,7 @@ export function Skills() {
                     {category.skills.map((skill, skillIndex) => (
                       <div
                         key={skillIndex}
-                        className="bg-muted/60 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-foreground/80 hover:bg-muted transition-colors duration-200"
+                        className="bg-muted/60 rounded-full px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-xs sm:text-sm text-foreground/80 hover:bg-muted transition-colors duration-200"
                       >
                         {skill}
                       </div>

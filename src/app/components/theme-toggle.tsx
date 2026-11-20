@@ -37,10 +37,10 @@ export function ThemeToggle() {
   return (
     <Button
       variant="outline"
-      size="sm"
+      size="icon"
       onClick={toggleTheme}
       aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
-      className="border-primary/20 hover:bg-primary/10 bg-transparent"
+      className="size-8 border-primary/20 hover:bg-primary/10 bg-transparent"
     >
       {/* Ícone fixo no SSR/hidratação; atualiza após mount para evitar mismatch de <path> no SVG */}
       {mounted ? (

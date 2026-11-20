@@ -46,7 +46,7 @@ export function Footer() {
                 href={href}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 aria-label={label}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors duration-200"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors duration-200"
               >
                 <Icon className="h-4 w-4" />
               </a>

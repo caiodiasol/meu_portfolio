@@ -60,7 +60,7 @@ function ProjectCard({
           className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
         />
         {project.featured && (
-          <span className="animate-featured-badge absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-md border border-primary/70 bg-primary/95 px-2.5 py-1 text-[10px] font-semibold font-mono uppercase tracking-wider text-primary-foreground backdrop-blur-sm">
+          <span className="animate-featured-badge absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full border border-primary/70 bg-primary/95 px-3 py-1 text-[10px] font-semibold font-mono uppercase tracking-wider text-primary-foreground backdrop-blur-sm">
             <span className="relative flex h-1.5 w-1.5 shrink-0" aria-hidden>
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground/80 opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary-foreground" />
@@ -80,7 +80,7 @@ function ProjectCard({
           {project.technologies.slice(0, 5).map((tech) => (
             <span
               key={tech}
-              className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] sm:text-xs font-mono rounded-md border border-primary/20"
+              className="px-2.5 py-0.5 bg-primary/10 text-primary text-[10px] sm:text-xs font-mono rounded-full border border-primary/20"
             >
               {tech}
             </span>
@@ -195,7 +195,7 @@ export function Projects() {
                   key={filter}
                   type="button"
                   onClick={() => handleFilterChange(filter)}
-                  className={`rounded-md border-2 px-3 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 ${
+                  className={`rounded-full border-2 px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "border-primary bg-primary/15 text-primary"
                       : "border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-primary"
@@ -238,7 +238,7 @@ export function Projects() {
                 onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
                 disabled={currentPage === 1}
                 aria-label={m.projects.pagination.prev}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -253,7 +253,7 @@ export function Projects() {
                     onClick={() => setCurrentPage(page)}
                     aria-label={`${m.projects.pagination.page} ${page}`}
                     aria-current={isActive ? "page" : undefined}
-                    className={`inline-flex h-9 min-w-9 items-center justify-center rounded-md border-2 px-2.5 text-xs sm:text-sm font-medium transition-colors ${
+                    className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full border-2 px-2.5 text-xs sm:text-sm font-medium transition-colors ${
                       isActive
                         ? "border-primary bg-primary/15 text-primary"
                         : "border-border text-muted-foreground hover:border-primary/50 hover:text-primary"
@@ -269,7 +269,7 @@ export function Projects() {
                 onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
                 disabled={currentPage === totalPages}
                 aria-label={m.projects.pagination.next}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
