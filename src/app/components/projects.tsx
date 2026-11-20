@@ -113,7 +113,7 @@ function ProjectCard({
           {project.live && (
             <Button
               size="sm"
-              className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground hover:bg-accent hover:animate-none"
+              className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground shadow-none hover:bg-accent hover:[animation-play-state:paused]"
               asChild
             >
               <a
