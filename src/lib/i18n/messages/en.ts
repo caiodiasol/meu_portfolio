@@ -236,11 +236,21 @@ export const messagesEn: Messages = {
       backend: "Backend",
     },
     empty: "No projects in this category.",
+    viewCase: "View case",
     pagination: {
       prev: "Previous page",
       next: "Next page",
       page: "Page",
     },
+  },
+  caseStudy: {
+    back: "Back to projects",
+    challenge: "Challenge",
+    solution: "Solution",
+    results: "Results",
+    stack: "Stack",
+    code: "Code",
+    live: "View project",
   },
   projectItems: mergeProjects(projectContent),
   skills: {

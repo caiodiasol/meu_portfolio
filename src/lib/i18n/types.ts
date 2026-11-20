@@ -14,6 +14,7 @@ export type ProjectItem = {
   featured: boolean
   categories: ProjectCategory[]
   complexity: number
+  slug: string | null
 }
 
 export type EducationItem = {
@@ -110,11 +111,21 @@ export type Messages = {
       backend: string
     }
     empty: string
+    viewCase: string
     pagination: {
       prev: string
       next: string
       page: string
     }
+  }
+  caseStudy: {
+    back: string
+    challenge: string
+    solution: string
+    results: string
+    stack: string
+    code: string
+    live: string
   }
   projectItems: ProjectItem[]
   skills: {

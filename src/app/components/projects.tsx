@@ -1,8 +1,10 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
+import { BookOpen, ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/i18n/language-provider"
 import type { ProjectFilter, ProjectItem } from "@/lib/i18n/types"
@@ -25,12 +27,18 @@ function ProjectCard({
   labels,
 }: {
   project: ProjectItem
-  labels: { code: string; viewProject: string; featuredLabel: string }
+  labels: { code: string; viewProject: string; viewCase: string; featuredLabel: string }
 }) {
-  const primaryHref = project.live ?? project.github
+  const router = useRouter()
+  const caseHref = project.slug ? `/projetos/${project.slug}` : null
+  const externalHref = project.live ?? project.github
 
   const openPrimaryLink = () => {
-    window.open(primaryHref, "_blank", "noopener,noreferrer")
+    if (caseHref) {
+      router.push(caseHref)
+      return
+    }
+    window.open(externalHref, "_blank", "noopener,noreferrer")
   }
 
   return (
@@ -93,6 +101,22 @@ function ProjectCard({
         </div>
 
         <div className="relative z-10 mt-auto flex flex-wrap gap-2 pt-1">
+          {caseHref && (
+            <Button
+              size="sm"
+              className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground shadow-none hover:bg-accent hover:[animation-play-state:paused]"
+              asChild
+            >
+              <Link
+                href={caseHref}
+                className="inline-flex items-center gap-1.5"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <BookOpen className="h-3 w-3 shrink-0" />
+                {labels.viewCase}
+              </Link>
+            </Button>
+          )}
           <Button
             variant="outline"
             size="sm"
@@ -113,7 +137,12 @@ function ProjectCard({
           {project.live && (
             <Button
               size="sm"
-              className="animate-cta-soft-pulse h-8 text-[10px] sm:text-xs bg-primary text-primary-foreground shadow-none hover:bg-accent hover:[animation-play-state:paused]"
+              variant={caseHref ? "outline" : "default"}
+              className={`h-8 text-[10px] sm:text-xs ${
+                caseHref
+                  ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                  : "animate-cta-soft-pulse bg-primary text-primary-foreground shadow-none hover:bg-accent hover:[animation-play-state:paused]"
+              }`}
               asChild
             >
               <a
@@ -164,6 +193,7 @@ export function Projects() {
   const labels = {
     code: m.projects.code,
     viewProject: m.projects.viewProject,
+    viewCase: m.projects.viewCase,
     featuredLabel: m.projects.featuredLabel,
   }
 

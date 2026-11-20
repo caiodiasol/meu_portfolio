@@ -1,4 +1,3 @@
-import { AppProviders } from "./components/app-providers"
 import { Header } from "./components/header"
 import { Hero } from "./components/hero"
 import { About } from "./components/about"
@@ -11,20 +10,18 @@ import { Footer } from "./components/footer"
 
 export default function Home() {
   return (
-    <AppProviders>
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Education />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </AppProviders>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Education />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   )
 }

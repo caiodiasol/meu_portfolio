@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -84,6 +86,8 @@ function ResumeDownloadButton({
 
 export function Header() {
   const { messages: m } = useLanguage()
+  const pathname = usePathname()
+  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -107,9 +111,15 @@ export function Header() {
   }, [isMobileMenuOpen])
 
   const scrollToSection = (sectionId: string) => {
+    setIsMobileMenuOpen(false)
+
+    if (pathname !== "/") {
+      router.push(`/#${sectionId}`)
+      return
+    }
+
     const element = document.getElementById(sectionId)
     element?.scrollIntoView({ behavior: "smooth" })
-    setIsMobileMenuOpen(false)
   }
 
   const navItems = [
@@ -129,7 +139,9 @@ export function Header() {
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">{"<Dev />"}</div>
+            <Link href="/" className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">
+              {"<Dev />"}
+            </Link>
             <LanguageToggle />
             <ThemeToggle />
           </div>

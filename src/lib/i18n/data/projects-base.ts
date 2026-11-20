@@ -9,6 +9,7 @@ export const projectsBase = [
     featured: true,
     categories: ["fullstack"] as const,
     complexity: 70,
+    slug: "tarot",
   },
   {
     image: "/dashboard_gdash.png",
@@ -18,6 +19,7 @@ export const projectsBase = [
     featured: true,
     categories: ["fullstack"] as const,
     complexity: 100,
+    slug: "gdash",
   },
   {
     image: "/newsun_energy.png",
@@ -27,6 +29,7 @@ export const projectsBase = [
     featured: true,
     categories: ["fullstack"] as const,
     complexity: 85,
+    slug: "newsun",
   },
   {
     image: "/dietaopenai.png",

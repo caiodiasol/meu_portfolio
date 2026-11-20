@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
+import { AppProviders } from "./components/app-providers"
+import { HashScroll } from "./components/hash-scroll"
 import { ScrollProgress } from "./components/scroll-progress"
 import { getSiteUrl, siteConfig } from "@/lib/site"
 
@@ -116,8 +118,11 @@ export default function RootLayout({
             `,
           }}
         />
-        <ScrollProgress />
-        {children}
+        <AppProviders>
+          <ScrollProgress />
+          <HashScroll />
+          {children}
+        </AppProviders>
         <Analytics />
       </body>
     </html>

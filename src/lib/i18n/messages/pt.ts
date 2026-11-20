@@ -236,11 +236,21 @@ export const messagesPt: Messages = {
       backend: "Backend",
     },
     empty: "Nenhum projeto nesta categoria.",
+    viewCase: "Ver case",
     pagination: {
       prev: "Página anterior",
       next: "Próxima página",
       page: "Página",
     },
+  },
+  caseStudy: {
+    back: "Voltar aos projetos",
+    challenge: "Desafio",
+    solution: "Solução",
+    results: "Resultados",
+    stack: "Stack",
+    code: "Código",
+    live: "Ver projeto",
   },
   projectItems: mergeProjects(projectContent),
   skills: {

@@ -12,6 +12,7 @@ export function mergeProjects(
     categories: [...base.categories],
     technologies: [...base.technologies],
     complexity: "complexity" in base ? (base.complexity as number) : 0,
+    slug: "slug" in base ? (base.slug as string) : null,
     title: content[index]?.title ?? "",
     description: content[index]?.description ?? "",
   }))
