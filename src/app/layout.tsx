@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, JetBrains_Mono } from "next/font/google"
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 import { AppProviders } from "./components/app-providers"
@@ -7,12 +7,12 @@ import { HashScroll } from "./components/hash-scroll"
 import { ScrollProgress } from "./components/scroll-progress"
 import { getSiteUrl, siteConfig } from "@/lib/site"
 
-const geistSans = Inter({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 })
 
-const geistMono = JetBrains_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 })
@@ -94,8 +94,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
-      <body className="antialiased">
+    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className={`${spaceGrotesk.className} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -111,8 +111,11 @@ export default function RootLayout({
                   } else {
                     document.documentElement.classList.remove("light");
                   }
+                  const locale = localStorage.getItem("portfolio-locale");
+                  document.documentElement.lang = locale === "en" ? "en" : "pt-BR";
                 } catch (e) {
                   document.documentElement.classList.remove("light");
+                  document.documentElement.lang = "pt-BR";
                 }
               })();
             `,

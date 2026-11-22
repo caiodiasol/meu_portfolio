@@ -188,10 +188,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .animate-featured-badge,
   .animate-cta-soft-pulse {
     animation: none !important;
     box-shadow: 0 0 14px 2px rgb(167 139 250 / 0.45);
+  }
+
+  .animate-fade-in-up,
+  .animate-ping {
+    animation: none !important;
+  }
+
+  button:not(:disabled):hover,
+  a[href]:hover {
+    scale: 1 !important;
+  }
+
+  button:not(:disabled),
+  a[href] {
+    transition-duration: 0.01ms !important;
   }
 }
 

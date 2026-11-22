@@ -39,7 +39,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
-    document.documentElement.lang = locale === "pt" ? "pt-BR" : "en"
+    const lang = locale === "pt" ? "pt-BR" : "en"
+    document.documentElement.lang = lang
+    document.documentElement.setAttribute("data-locale", locale)
   }, [locale])
 
   const setLocale = useCallback((next: Locale) => {
