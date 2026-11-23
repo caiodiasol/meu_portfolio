@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
 import { AppProviders } from "./components/app-providers"
@@ -7,12 +7,12 @@ import { HashScroll } from "./components/hash-scroll"
 import { ScrollProgress } from "./components/scroll-progress"
 import { getSiteUrl, siteConfig } from "@/lib/site"
 
-const spaceGrotesk = Space_Grotesk({
+const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 })
@@ -94,8 +94,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className={`${spaceGrotesk.className} antialiased`}>
+    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
