@@ -355,4 +355,11 @@ export const messagesEn: Messages = {
     builtWith: "Built with Next.js and TypeScript",
     contact: "Contact",
   },
+  notFound: {
+    code: "404",
+    title: "Page not found",
+    description: "This address does not exist or was moved. Go back home or check the featured projects.",
+    home: "Go to home",
+    projects: "View projects",
+  },
 }

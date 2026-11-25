@@ -13,7 +13,8 @@ export function CaseStudyView({ slug }: { slug: string }) {
   if (!study) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-24 text-center">
-        <p className="text-muted-foreground mb-6">Case não encontrado.</p>
+        <p className="mb-2 font-mono text-sm font-semibold tracking-[0.2em] text-primary">{m.notFound.code}</p>
+        <p className="mb-6 text-muted-foreground">{m.notFound.title}</p>
         <Button asChild variant="outline" className="rounded-full">
           <Link href="/#projects">{m.caseStudy.back}</Link>
         </Button>

@@ -178,4 +178,11 @@ export type Messages = {
     builtWith: string
     contact: string
   }
+  notFound: {
+    code: string
+    title: string
+    description: string
+    home: string
+    projects: string
+  }
 }
