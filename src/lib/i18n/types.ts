@@ -24,6 +24,7 @@ export type EducationItem = {
   period: string
   status: string
   description: string
+  certificate: string | null
 }
 
 export type ExperienceItem = {
@@ -88,6 +89,7 @@ export type Messages = {
     title: string
     titleHighlight: string
     subtitle: string
+    viewCertificate: string
   }
   educationItems: EducationItem[]
   experience: {

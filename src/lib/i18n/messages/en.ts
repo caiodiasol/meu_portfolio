@@ -137,6 +137,7 @@ export const messagesEn: Messages = {
     title: "Academic",
     titleHighlight: "Background",
     subtitle: "My educational journey and the knowledge I have gained over the years",
+    viewCertificate: "View diploma",
   },
   educationItems: [
     {
@@ -147,6 +148,7 @@ export const messagesEn: Messages = {
       status: "Completed",
       description:
         "Professional training for end-to-end software development, from programming fundamentals and computational logic to modern frameworks such as Django and React, plus databases, APIs, testing, and software engineering best practices.",
+      certificate: "/certificates/ebac-fullstack-python.pdf",
     },
     {
       type: "Technical Course",
@@ -156,6 +158,7 @@ export const messagesEn: Messages = {
       status: "Completed",
       description:
         "Programming fundamentals, C# applied to Unity, Virtual Reality, server databases, and 3D environment creation.",
+      certificate: "/certificates/infinity-programacao-metaverso.pdf",
     },
     {
       type: "Higher Education",
@@ -164,6 +167,7 @@ export const messagesEn: Messages = {
       period: "2014 - 2019",
       status: "Completed",
       description: "Focus on leadership, management, entrepreneurship, and marketing.",
+      certificate: "/certificates/unijorge-administracao.pdf",
     },
   ],
   experience: {

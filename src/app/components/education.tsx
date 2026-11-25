@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, BookOpen, type LucideIcon } from "lucide-react"
+import { GraduationCap, BookOpen, FileText, type LucideIcon } from "lucide-react"
 import { useLanguage } from "@/lib/i18n/language-provider"
 import type { EducationItem } from "@/lib/i18n/types"
 
@@ -24,7 +24,15 @@ const itemVariants = {
   },
 }
 
-function EducationCard({ data, icon: Icon }: { data: EducationItem; icon: LucideIcon }) {
+function EducationCard({
+  data,
+  icon: Icon,
+  viewCertificateLabel,
+}: {
+  data: EducationItem
+  icon: LucideIcon
+  viewCertificateLabel: string
+}) {
   return (
     <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative group">
       <div className="absolute left-3 top-6 hidden md:block z-20 cursor-pointer">
@@ -51,9 +59,20 @@ function EducationCard({ data, icon: Icon }: { data: EducationItem; icon: Lucide
             </div>
             <p className="text-primary font-medium mb-1">{data.institution}</p>
             <p className="text-xs leading-relaxed sm:text-sm text-muted-foreground mb-3 text-justify sm:text-left">{data.description}</p>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">{data.type}</span>
-              <span className="text-xs text-green-400 bg-green-400/10 px-2 py-1 rounded">{data.status}</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">{data.type}</span>
+              <span className="text-xs text-green-400 bg-green-400/10 px-2 py-1 rounded-full">{data.status}</span>
+              {data.certificate && (
+                <a
+                  href={data.certificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="animate-cta-soft-pulse inline-flex items-center gap-1.5 text-xs font-medium text-primary-foreground bg-primary border border-primary/70 hover:bg-accent hover:[animation-play-state:paused] px-2.5 py-1 rounded-full transition-colors shadow-none"
+                >
+                  <FileText className="w-3 h-3 shrink-0" />
+                  {viewCertificateLabel}
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -101,7 +120,12 @@ export function Education() {
               className="space-y-8"
             >
               {m.educationItems.map((education, index) => (
-                <EducationCard key={index} data={education} icon={educationIcons[index] ?? BookOpen} />
+                <EducationCard
+                  key={index}
+                  data={education}
+                  icon={educationIcons[index] ?? BookOpen}
+                  viewCertificateLabel={m.education.viewCertificate}
+                />
               ))}
             </motion.div>
           </div>

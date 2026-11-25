@@ -137,6 +137,7 @@ export const messagesPt: Messages = {
     title: "Formação",
     titleHighlight: "Acadêmica",
     subtitle: "Minha jornada educacional e os conhecimentos adquiridos ao longo dos anos",
+    viewCertificate: "Ver diploma",
   },
   educationItems: [
     {
@@ -147,6 +148,7 @@ export const messagesPt: Messages = {
       status: "Concluído",
       description:
         "Formação profissional para atuar no desenvolvimento de software do front-end ao back-end, abordando fundamentos da programação e lógica computacional até o uso de frameworks modernos como Django e React, além de banco de dados e APIs, testes e boas práticas de engenharia de software.",
+      certificate: "/certificates/ebac-fullstack-python.pdf",
     },
     {
       type: "Curso Técnico",
@@ -156,6 +158,7 @@ export const messagesPt: Messages = {
       status: "Concluído",
       description:
         "Fundamentos de programação, C# aplicado ao Unity, Realidade Virtual, Banco de Dados para Servidores e Criação de Cenários 3D.",
+      certificate: "/certificates/infinity-programacao-metaverso.pdf",
     },
     {
       type: "Ensino Superior",
@@ -164,6 +167,7 @@ export const messagesPt: Messages = {
       period: "2014 - 2019",
       status: "Concluído",
       description: "Foco em liderança, gestão, empreendedorismo e marketing.",
+      certificate: "/certificates/unijorge-administracao.pdf",
     },
   ],
   experience: {
