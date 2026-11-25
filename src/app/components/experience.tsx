@@ -41,7 +41,7 @@ export function Experience() {
   }
 
   return (
-    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 bg-card/30">
+    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto">
         <motion.div
           className="max-w-4xl mx-auto"

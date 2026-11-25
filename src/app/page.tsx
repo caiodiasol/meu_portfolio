@@ -7,21 +7,25 @@ import { Projects } from "./components/projects"
 import { Skills } from "./components/skills"
 import { Contact } from "./components/contact"
 import { Footer } from "./components/footer"
+import { SiteBackground } from "./components/site-background"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Education />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen bg-transparent">
+      <SiteBackground />
+      <div className="relative z-10">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Education />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }

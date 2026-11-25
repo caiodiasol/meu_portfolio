@@ -45,7 +45,7 @@ export function Skills() {
   }
 
   return (
-    <section id="skills-section" className="py-16 sm:py-20 px-4 sm:px-6 bg-background">
+    <section id="skills-section" className="py-16 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto">
         <motion.div
           className="max-w-6xl mx-auto"

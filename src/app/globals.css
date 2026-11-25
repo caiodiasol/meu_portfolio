@@ -146,6 +146,14 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
+.site-background-layer {
+  opacity: 0.4;
+}
+
+html.light .site-background-layer {
+  opacity: 0.2;
+}
+
 @keyframes featured-badge-pulse {
   0%,
   100% {
