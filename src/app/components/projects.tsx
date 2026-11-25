@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { Suspense, useEffect, useMemo } from "react"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { BookOpen, ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,10 @@ import type { ProjectFilter, ProjectItem } from "@/lib/i18n/types"
 
 const FILTERS: ProjectFilter[] = ["featured", "fullstack", "frontend", "backend"]
 const PAGE_SIZE = 6
+
+function isProjectFilter(value: string | null): value is ProjectFilter {
+  return !!value && FILTERS.includes(value as ProjectFilter)
+}
 
 function filterProjects(projects: ProjectItem[], filter: ProjectFilter) {
   if (filter === "featured") return projects.filter((project) => project.featured)
@@ -163,10 +167,17 @@ function ProjectCard({
   )
 }
 
-export function Projects() {
+function ProjectsContent() {
   const { messages: m, locale } = useLanguage()
-  const [activeFilter, setActiveFilter] = useState<ProjectFilter>("featured")
-  const [currentPage, setCurrentPage] = useState(1)
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const activeFilter = isProjectFilter(searchParams.get("filter"))
+    ? (searchParams.get("filter") as ProjectFilter)
+    : "featured"
+
+  const pageFromUrl = Math.max(1, Number.parseInt(searchParams.get("page") || "1", 10) || 1)
 
   const filteredProjects = useMemo(
     () => filterProjects(m.projectItems, activeFilter),
@@ -174,16 +185,40 @@ export function Projects() {
   )
 
   const totalPages = Math.max(1, Math.ceil(filteredProjects.length / PAGE_SIZE))
+  const currentPage = Math.min(pageFromUrl, totalPages)
+
+  const updateQuery = (filter: ProjectFilter, page: number) => {
+    const params = new URLSearchParams(searchParams.toString())
+
+    if (filter === "featured") params.delete("filter")
+    else params.set("filter", filter)
+
+    if (page <= 1) params.delete("page")
+    else params.set("page", String(page))
+
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}#projects` : `${pathname}#projects`, { scroll: false })
+  }
+
+  const scrollToProjects = () => {
+    requestAnimationFrame(() => {
+      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
+  }
 
   useEffect(() => {
-    setCurrentPage(1)
-  }, [activeFilter, locale])
+    if (pageFromUrl <= totalPages) return
 
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages)
-    }
-  }, [currentPage, totalPages])
+    const params = new URLSearchParams(searchParams.toString())
+    if (activeFilter === "featured") params.delete("filter")
+    else params.set("filter", activeFilter)
+
+    if (totalPages <= 1) params.delete("page")
+    else params.set("page", String(totalPages))
+
+    const query = params.toString()
+    router.replace(query ? `${pathname}?${query}#projects` : `${pathname}#projects`, { scroll: false })
+  }, [pageFromUrl, totalPages, activeFilter, pathname, router, searchParams])
 
   const paginatedProjects = useMemo(() => {
     const start = (currentPage - 1) * PAGE_SIZE
@@ -198,12 +233,17 @@ export function Projects() {
   }
 
   const handleFilterChange = (filter: ProjectFilter) => {
-    setActiveFilter(filter)
-    setCurrentPage(1)
+    updateQuery(filter, 1)
+    scrollToProjects()
+  }
+
+  const handlePageChange = (page: number) => {
+    updateQuery(activeFilter, page)
+    scrollToProjects()
   }
 
   return (
-    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="scroll-mt-24 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <motion.div
           className="max-w-6xl mx-auto"
@@ -217,7 +257,7 @@ export function Projects() {
             {m.projects.title} <span className="text-gradient">{m.projects.titleHighlight}</span>
           </h2>
 
-          <div className="mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-2">
+          <div className="mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-2" role="group" aria-label={m.projects.title}>
             {FILTERS.map((filter) => {
               const isActive = activeFilter === filter
               return (
@@ -225,6 +265,7 @@ export function Projects() {
                   key={filter}
                   type="button"
                   onClick={() => handleFilterChange(filter)}
+                  aria-pressed={isActive}
                   className={`rounded-full border-2 px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "border-primary bg-primary/15 text-primary"
@@ -265,7 +306,7 @@ export function Projects() {
             <div className="mt-8 sm:mt-10 flex items-center justify-center gap-2">
               <button
                 type="button"
-                onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
+                onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                 disabled={currentPage === 1}
                 aria-label={m.projects.pagination.prev}
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
@@ -280,7 +321,7 @@ export function Projects() {
                   <button
                     key={page}
                     type="button"
-                    onClick={() => setCurrentPage(page)}
+                    onClick={() => handlePageChange(page)}
                     aria-label={`${m.projects.pagination.page} ${page}`}
                     aria-current={isActive ? "page" : undefined}
                     className={`inline-flex h-9 min-w-9 items-center justify-center rounded-full border-2 px-2.5 text-xs sm:text-sm font-medium transition-colors ${
@@ -296,7 +337,7 @@ export function Projects() {
 
               <button
                 type="button"
-                onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
+                onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                 disabled={currentPage === totalPages}
                 aria-label={m.projects.pagination.next}
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border-2 border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:pointer-events-none disabled:opacity-40"
@@ -308,5 +349,35 @@ export function Projects() {
         </motion.div>
       </div>
     </section>
+  )
+}
+
+function ProjectsFallback() {
+  return (
+    <section id="projects" className="scroll-mt-24 py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8 h-10 w-64 mx-auto rounded-full bg-muted/40" />
+          <div className="mb-10 flex flex-wrap justify-center gap-2">
+            {FILTERS.map((filter) => (
+              <div key={filter} className="h-9 w-24 rounded-full bg-muted/30" />
+            ))}
+          </div>
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <div key={index} className="h-80 rounded-xl border-2 border-border bg-card/50" />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function Projects() {
+  return (
+    <Suspense fallback={<ProjectsFallback />}>
+      <ProjectsContent />
+    </Suspense>
   )
 }
