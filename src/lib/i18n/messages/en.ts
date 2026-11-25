@@ -110,6 +110,7 @@ export const messagesEn: Messages = {
     contact: "Get in Touch",
     closeMenu: "Close menu",
     openMenu: "Open menu",
+    skipToContent: "Skip to content",
   },
   hero: {
     role: "Full Stack Developer",
@@ -332,6 +333,10 @@ export const messagesEn: Messages = {
     location: "Location",
     locationValue: "Salvador - BA",
     formSubject: "New message from the portfolio!",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    phoneLabel: "Phone",
+    messageLabel: "Message",
     namePlaceholder: "Your name",
     emailPlaceholder: "Your email",
     phonePlaceholder: "Your phone (optional)",

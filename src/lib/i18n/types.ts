@@ -62,6 +62,7 @@ export type Messages = {
     contact: string
     closeMenu: string
     openMenu: string
+    skipToContent: string
   }
   hero: {
     role: string
@@ -155,6 +156,10 @@ export type Messages = {
     location: string
     locationValue: string
     formSubject: string
+    nameLabel: string
+    emailLabel: string
+    phoneLabel: string
+    messageLabel: string
     namePlaceholder: string
     emailPlaceholder: string
     phonePlaceholder: string

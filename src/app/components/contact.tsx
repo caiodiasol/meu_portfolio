@@ -91,12 +91,14 @@ export function Contact() {
           >
             {showSuccess && (
               <motion.div
+                role="status"
+                aria-live="polite"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="mb-8 p-4 sm:p-6 bg-green-500/10 border-2 border-green-500/30 rounded-lg"
               >
                 <div className="flex items-center gap-3 text-green-600 dark:text-green-400">
-                  <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" aria-hidden />
                   <div>
                     <p className="font-semibold text-base sm:text-lg">{m.contact.successTitle}</p>
                     <p className="text-xs sm:text-sm text-green-600/80 dark:text-green-400/80">{m.contact.successMessage}</p>
@@ -107,12 +109,14 @@ export function Contact() {
 
             {showError && (
               <motion.div
+                role="alert"
+                aria-live="assertive"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="mb-8 p-4 sm:p-6 bg-red-500/10 border-2 border-red-500/30 rounded-lg"
               >
                 <div className="flex items-center gap-3 text-red-600 dark:text-red-400">
-                  <AlertCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" />
+                  <AlertCircle className="h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0" aria-hidden />
                   <div>
                     <p className="font-semibold text-base sm:text-lg">{m.contact.errorTitle}</p>
                     <p className="text-xs sm:text-sm text-red-600/80 dark:text-red-400/80">{m.contact.errorMessage}</p>
@@ -193,41 +197,60 @@ export function Contact() {
                   <input type="hidden" name="_template" value="table" />
                   <input type="text" name="_honey" style={{ display: "none" }} />
 
-                  <motion.div variants={itemVariants}>
+                  <motion.div variants={itemVariants} className="space-y-1.5">
+                    <label htmlFor="contact-name" className="text-sm font-medium text-foreground">
+                      {m.contact.nameLabel}
+                    </label>
                     <Input
+                      id="contact-name"
                       type="text"
                       name="name"
                       placeholder={m.contact.namePlaceholder}
                       required
                       minLength={2}
                       disabled={isSubmitting}
+                      autoComplete="name"
                       className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
-                  <motion.div variants={itemVariants}>
+                  <motion.div variants={itemVariants} className="space-y-1.5">
+                    <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+                      {m.contact.emailLabel}
+                    </label>
                     <Input
+                      id="contact-email"
                       type="email"
                       name="email"
                       placeholder={m.contact.emailPlaceholder}
                       required
                       disabled={isSubmitting}
+                      autoComplete="email"
                       className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
-                  <motion.div variants={itemVariants}>
+                  <motion.div variants={itemVariants} className="space-y-1.5">
+                    <label htmlFor="contact-phone" className="text-sm font-medium text-foreground">
+                      {m.contact.phoneLabel}
+                    </label>
                     <Input
+                      id="contact-phone"
                       type="tel"
                       name="phone"
                       placeholder={m.contact.phonePlaceholder}
                       disabled={isSubmitting}
+                      autoComplete="tel"
                       className="bg-muted/30 border-2 border-border hover:border-primary focus:border-primary h-12 transition-colors duration-300"
                     />
                   </motion.div>
 
-                  <motion.div variants={itemVariants}>
+                  <motion.div variants={itemVariants} className="space-y-1.5">
+                    <label htmlFor="contact-message" className="text-sm font-medium text-foreground">
+                      {m.contact.messageLabel}
+                    </label>
                     <Textarea
+                      id="contact-message"
                       name="message"
                       placeholder={m.contact.messagePlaceholder}
                       required

@@ -48,7 +48,7 @@ export default function CaseStudyPage({ params }: PageProps) {
       <SiteBackground />
       <div className="relative z-10">
         <Header />
-        <main className="pt-20 sm:pt-24">
+        <main id="main" className="pt-20 sm:pt-24">
           <CaseStudyView slug={params.slug} />
         </main>
         <Footer />

@@ -15,7 +15,7 @@ export default function Home() {
       <SiteBackground />
       <div className="relative z-10">
         <Header />
-        <main>
+        <main id="main">
           <Hero />
           <About />
           <Education />

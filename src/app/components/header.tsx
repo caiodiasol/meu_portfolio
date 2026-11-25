@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -20,6 +20,8 @@ const CV_FILES = {
   pt: { href: "/Caio_CV_PT.pdf", filename: "Caio_CV_PT.pdf" },
   en: { href: "/Caio_CV_EN.pdf", filename: "Caio_CV_EN.pdf" },
 } as const
+
+const MOBILE_MENU_ID = "mobile-navigation"
 
 function downloadCv(href: string, filename: string) {
   const link = document.createElement("a")
@@ -90,6 +92,8 @@ export function Header() {
   const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobilePanelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,6 +106,10 @@ export function Header() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden"
+      const firstFocusable = mobilePanelRef.current?.querySelector<HTMLElement>(
+        "button, a, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+      )
+      firstFocusable?.focus()
     } else {
       document.body.style.overflow = "unset"
     }
@@ -109,6 +117,25 @@ export function Header() {
       document.body.style.overflow = "unset"
     }
   }, [isMobileMenuOpen])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMobileMenuOpen(false)
+        menuButtonRef.current?.focus()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isMobileMenuOpen])
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+    menuButtonRef.current?.focus()
+  }
 
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false)
@@ -131,114 +158,138 @@ export function Header() {
   ]
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 sm:gap-3">
-            <Link href="/" className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">
-              {"<Dev />"}
-            </Link>
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
+    <>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+      >
+        {m.header.skipToContent}
+      </a>
 
-          <div className="hidden lg:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="link-hover text-muted-foreground hover:text-primary text-base"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+      <header
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
+        }`}
+      >
+        <nav className="container mx-auto px-4 sm:px-6 py-4" aria-label="Primary">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Link href="/" className="text-lg sm:text-xl font-bold text-gradient whitespace-nowrap">
+                {"<Dev />"}
+              </Link>
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
 
-          <div className="hidden lg:flex items-center gap-2">
-            <ResumeDownloadButton />
-            <Button
-              onClick={() => scrollToSection("projects")}
-              variant="outline"
-              size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-            >
-              {m.header.viewProjects}
-            </Button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              size="sm"
-              className="bg-primary text-primary-foreground hover:bg-accent"
-            >
-              {m.header.contact}
-            </Button>
-          </div>
-
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden inline-flex size-9 items-center justify-center rounded-full text-foreground hover:text-primary hover:bg-primary/10 transition-colors"
-            aria-label={isMobileMenuOpen ? m.header.closeMenu : m.header.openMenu}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </nav>
-
-      {isMobileMenuOpen && (
-        <>
-          <div
-            className="lg:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-40 animate-in fade-in duration-200"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          <div className="lg:hidden fixed top-[68px] left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg z-50 animate-in slide-in-from-top-4 duration-300 max-h-[calc(100vh-68px)] overflow-y-auto">
-            <div className="px-6 py-6 space-y-4 max-w-md mx-auto">
-              <div className="flex justify-end">
+            <div className="hidden lg:flex items-center space-x-6">
+              {navItems.map((item) => (
                 <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex size-9 items-center justify-center rounded-full hover:bg-primary/10"
-                  aria-label={m.header.closeMenu}
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className="link-hover text-muted-foreground hover:text-primary text-base"
                 >
-                  <X className="h-5 w-5 text-foreground" />
+                  {item.label}
                 </button>
-              </div>
+              ))}
+            </div>
 
-              <div className="flex flex-col space-y-3">
-                {navItems.map((item) => (
+            <div className="hidden lg:flex items-center gap-2">
+              <ResumeDownloadButton />
+              <Button
+                onClick={() => scrollToSection("projects")}
+                variant="outline"
+                size="sm"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              >
+                {m.header.viewProjects}
+              </Button>
+              <Button
+                onClick={() => scrollToSection("contact")}
+                size="sm"
+                className="bg-primary text-primary-foreground hover:bg-accent"
+              >
+                {m.header.contact}
+              </Button>
+            </div>
+
+            <button
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              className="lg:hidden inline-flex size-9 items-center justify-center rounded-full text-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+              aria-label={isMobileMenuOpen ? m.header.closeMenu : m.header.openMenu}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls={MOBILE_MENU_ID}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </nav>
+
+        {isMobileMenuOpen && (
+          <>
+            <div
+              className="lg:hidden fixed inset-0 bg-background/80 backdrop-blur-sm z-40 animate-in fade-in duration-200"
+              onClick={closeMobileMenu}
+              aria-hidden
+            />
+            <div
+              id={MOBILE_MENU_ID}
+              ref={mobilePanelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={m.header.openMenu}
+              className="lg:hidden fixed top-[68px] left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg z-50 animate-in slide-in-from-top-4 duration-300 max-h-[calc(100vh-68px)] overflow-y-auto"
+            >
+              <div className="px-6 py-6 space-y-4 max-w-md mx-auto">
+                <div className="flex justify-end">
                   <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left text-muted-foreground hover:text-primary py-2 text-base"
+                    type="button"
+                    onClick={closeMobileMenu}
+                    className="inline-flex size-9 items-center justify-center rounded-full hover:bg-primary/10"
+                    aria-label={m.header.closeMenu}
                   >
-                    {item.label}
+                    <X className="h-5 w-5 text-foreground" />
                   </button>
-                ))}
-              </div>
+                </div>
 
-              <div className="flex flex-col space-y-2 pt-4 border-t border-border">
-                <ResumeDownloadButton fullWidth onAfterSelect={() => setIsMobileMenuOpen(false)} />
-                <Button
-                  onClick={() => scrollToSection("projects")}
-                  variant="outline"
-                  size="sm"
-                  className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-                >
-                  {m.header.viewProjects}
-                </Button>
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  size="sm"
-                  className="w-full bg-primary text-primary-foreground hover:bg-accent"
-                >
-                  {m.header.contact}
-                </Button>
+                <div className="flex flex-col space-y-3">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => scrollToSection(item.id)}
+                      className="text-left text-muted-foreground hover:text-primary py-2 text-base"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex flex-col space-y-2 pt-4 border-t border-border">
+                  <ResumeDownloadButton fullWidth onAfterSelect={closeMobileMenu} />
+                  <Button
+                    onClick={() => scrollToSection("projects")}
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                  >
+                    {m.header.viewProjects}
+                  </Button>
+                  <Button
+                    onClick={() => scrollToSection("contact")}
+                    size="sm"
+                    className="w-full bg-primary text-primary-foreground hover:bg-accent"
+                  >
+                    {m.header.contact}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
-    </header>
+          </>
+        )}
+      </header>
+    </>
   )
 }
